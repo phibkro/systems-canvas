@@ -6,41 +6,9 @@
 
 The **overview canvas** should communicate system dynamics implicitly, as the Business Model Canvas does for business models. It is **not** a universal causal graph or a replacement for VSM, IAD, 4EM, ArchiMate or formal models. Spatial positions are stable across views.
 
-```mermaid
-block
-  columns 3
-  A["AUTHORITY<br/>Rules · roles · permissions"]
-  space
-  P["PURPOSE<br/>Goals · values · direction"]
-  S["STRUCTURE<br/>Actors · resources · dependencies"]
-  B["BEHAVIOR<br/>Processes · decisions · flows"]
-  O["OUTCOMES<br/>Value · harms · externalities"]
-  space
-  K["KNOWLEDGE<br/>Observation · evidence · uncertainty"]:2
+![Six-aspect System Canvas with Structure, Behavior, Outcomes, Knowledge, Authority and Purpose, including directional dependencies and feedback.](/diagrams/six-aspect.svg)
 
-  S --> B
-  B --> O
-  A -.-> S
-  A -.-> B
-  P -.-> B
-  P -.-> O
-  O -.-> K
-  K -.-> A
-  K -.-> P
-
-  classDef foundation fill:#143c36,stroke:#67c1a6,color:#e9faf4
-  classDef operation fill:#183e54,stroke:#79bfe5,color:#eef8fd
-  classDef impact fill:#313450,stroke:#aeb6fa,color:#f5f4ff
-  classDef oversight fill:#423820,stroke:#e3c276,color:#fff6df
-  classDef intention fill:#372c4b,stroke:#c0a4ec,color:#faf1ff
-  classDef evidence fill:#302a49,stroke:#ad9bea,color:#f6f1ff
-  class S foundation
-  class B operation
-  class O impact
-  class A oversight
-  class P intention
-  class K evidence
-```
+[Open full-size six-aspect SVG](/diagrams/six-aspect.svg)
 
 **Interpretation:** left to right indicates enabling inputs, transformations and effects; above indicates purposes, rules and control; below indicates evaluation, accumulated consequences and redesign; the returning path indicates observations and feedback. This is an *orientation* for inquiry, not a claim that the arrows exist or have known causal strengths in every case.
 

@@ -17,6 +17,11 @@ const entries=[
 ];
 for(const [input,title,group,order] of entries){
  let body=fs.readFileSync(path.join(root,input),'utf8').replace(/^# [^\n]+\n/,'');
+ // Stratus renders diagrams using the MDX Diagram component, not bare Mermaid fences.
+ // Keep canonical source Markdown portable while compiling each diagram as an MDX component.
+ body=body.replace(/```mermaid[ \\t]*\\r?\\n([\\s\\S]*?)\\r?\\n```/g, (_match,definition)=>
+  '<Diagram definition={'+JSON.stringify(definition.trim())+'} />'
+ );
  body=body.replace(/\]\((?:\.\.\/)?(?:docs\/|research\/)?(system-canvas-[\w-]+)\.md\)/g,(_,name)=>{
   const found=entries.find(e=>path.basename(e[0],'.md')===name);
   return '](/'+(found?.[0].startsWith('research/')?'research':'docs')+'/'+name+'/)';
@@ -52,10 +57,8 @@ write(path.join(docsDir,'cases/journalism.mdx'),[
  'description: "Explore the same system through six analytical lenses."',
  'group: "Explore"','order: 10','---','',
  "import CaseExplorer from '../../../components/custom/CaseExplorer.astro';",
- "import SystemSpatialModel from '../../../components/custom/SystemSpatialModel.astro';",'',
  '# One system, six analytical views','',
  'A teaching scenario about journalists, distribution platforms and audiences. The relationships are **illustrative**, not established claims about a particular platform.','',
- '<SystemSpatialModel />','',
  '## Explore the case','',
  '<CaseExplorer />','',
  '## What changes with the lens?','',

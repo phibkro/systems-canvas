@@ -25,6 +25,24 @@ for(const [input,title,group,order] of entries){
   '---\ntitle: '+JSON.stringify(title)+'\ndescription: '+JSON.stringify('System Canvas · '+title)+'\ngroup: '+JSON.stringify(group)+'\norder: '+order+'\n---\n\n'+body);
 }
 write(path.join(target,'src/components/custom/CaseExplorer.astro'),fs.readFileSync(path.join(root,'site/CaseExplorer.astro'),'utf8'));
+write(path.join(target,'src/components/custom/DiagnosticCanvas.astro'),fs.readFileSync(path.join(root,'site/DiagnosticCanvas.astro'),'utf8'));
+write(path.join(docsDir,'canvas/index.mdx'),[
+ '---',
+ 'title: "Diagnostic canvas prototype"',
+ 'description: "A problem-led, editable one-page worksheet with selective deeper analytical views."',
+ 'group: "Explore"',
+ 'order: 1',
+ '---','',
+ "import DiagnosticCanvas from '../../../components/custom/DiagnosticCanvas.astro';",'',
+ '# Start with a problem, not a theory','',
+ 'This **experimental prototype** translates the practitioner field guide into a single worksheet. Fill six simple prompts, open a deeper view only when necessary, and export your work. It does **not** store your content on a server. Edits remain in the current browser tab until exported.','',
+ '<DiagnosticCanvas />','',
+ '## What this prototype tests','',
+ '- Can someone reach a defensible diagnosis without prior VSM, IAD, 4EM or systems-theory training?',
+ '- Can optional analytical views improve reasoning without overwhelming the initial worksheet?',
+ '- Can the practitioner separate causal hypotheses from evidence, account for affected parties, and propose testable changes?','',
+ 'The example is hypothetical, not a documented claim about journalism or platform algorithms. See the [field guide](/docs/system-canvas-field-guide/) and [validation protocol](/research/system-canvas-validation-protocol/).',''
+].join('\\n'));
 write(path.join(docsDir,'cases/journalism.mdx'),[
  '---','title: "Journalism ecosystem: interactive case"',
  'description: "Explore the same system through six analytical lenses."',
@@ -59,8 +77,8 @@ write(path.join(target,'src/content/pages/index.md'),[
  '    alignmentHorizontal: start',
  '    buttonSections:',
  '      - _component: building-blocks/core-elements/button',
- '        text: Interactive model',
- '        link: /cases/journalism/',
+ '        text: Try the diagnostic canvas',
+ '        link: /canvas/',
  '        variant: primary',
  '        size: md',
  '        iconName: arrow-right',

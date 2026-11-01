@@ -1,6 +1,6 @@
 # System Canvas interaction tests
 
-The Explore pages use a small, immutable **TypeScript + Valibot reducer + dispatch** pattern, not a full statechart framework.
+The Explore pages use a small, immutable **TypeScript + Valibot reducer + dispatch** pattern, not a full statechart framework. The browser module is bundled with esbuild, and component configurations are parsed at the mount boundary.
 
 - Pure domain state: [`site/system-canvas-state.ts`](site/system-canvas-state.ts)
 - DOM adapter: [`site/system-canvas-interactions.js`](site/system-canvas-interactions.js)
@@ -33,7 +33,7 @@ npm run test:mutation   # Stryker mutation tests (about one minute in CI)
 
 **What is *not* established:** domain-level analytical correctness, persistent drafts across navigation, accessibility conformance, or real-world intervention outcomes. Those need separate studies.
 
-### Latest mutation results (2026-11-01)
+### Mutation results (2026-11-01)
 
 | Measure | First baseline | After adversarial-state tests |
 |---|---:|---:|
@@ -44,7 +44,9 @@ npm run test:mutation   # Stryker mutation tests (about one minute in CI)
 
 Evidence: [GitHub Actions run 41273851075](https://github.com/phibkro/systems-canvas/actions/runs/41273851075) (baseline) and [run 41274091316](https://github.com/phibkro/systems-canvas/actions/runs/41274091316) (improved). The improved run attached an HTML mutation report. Current minimum mutation threshold is 85%.
 
-GitHub Actions runs inexpensive property checks on pushes, and mutation checks are available through `workflow_dispatch` to control CI cost.
+The current Valibot TypeScript migration passed **22 Vitest tests** (including fast-check randomized actions and configuration/serialization guards). Its Stryker score is **86.07%**: **241 killed, 38 survived, 1 uncovered**, clearing the configured 85% minimum. The previous JavaScript reducer had 91.03%; the scores are not directly comparable because the schema-based implementation has different mutation opportunities. See [Valibot baseline run 41274707764](https://github.com/phibkro/systems-canvas/actions/runs/41274707764).
+
+GitHub Actions runs inexpensive property and TypeScript checks on pushes, and mutation checks are available through `workflow_dispatch` to control CI cost.
 
 ### Browser-level regression checks
 

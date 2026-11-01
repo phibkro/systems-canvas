@@ -2,6 +2,57 @@
 
 **Provisional practitioner-method thesis · v0.3**
 
+## Canonical visual grammar — spatial relations before notation
+
+The **overview canvas** should communicate system dynamics implicitly, as the Business Model Canvas does for business models. It is **not** a universal causal graph or a replacement for VSM, IAD, 4EM, ArchiMate or formal models. Spatial positions are stable across views.
+
+```mermaid
+flowchart TB
+  G["PURPOSE & GOVERNANCE<br/>Goals · Rules · Authority"]
+  subgraph S["SYSTEM BOUNDARY — REVISABLE"]
+    direction LR
+    C["CAPACITY<br/>Actors · Resources<br/>Stocks · Dependencies"]
+    O["OPERATIONS<br/>Processes · Decisions<br/>Flows · Delays"]
+    E["OUTCOMES<br/>Recipients · Value<br/>Harms · Externalities"]
+    C -->|"Inputs / enabling conditions"| O -->|"Outputs / effects"| E
+  end
+  F["OBSERVATION & FEEDBACK<br/>Signals · Evidence · Corrections"]
+  V["VIABILITY & EVALUATION<br/>Baseline · Trade-offs · Revision"]
+  G -. "Constraints / control" .-> O
+  E -. "Observed effects" .-> F
+  F -. "Signals / adjustment" .-> C
+  F -. "Information for governance" .-> G
+  E --> V
+  V -. "Learning / governance revision" .-> G
+```
+
+**Interpretation:** left to right indicates enabling inputs, transformations and effects; above indicates purposes, rules and control; below indicates evaluation, accumulated consequences and redesign; the returning path indicates observations and feedback. This is an *orientation* for inquiry, not a claim that the arrows exist or have known causal strengths in every case.
+
+### Visual constructs and relationships
+
+| Construct | Visible placement | Underlying relationships to investigate |
+|---|---|---|
+| **Capacity** | Left | Resources, participants, capabilities, dependency networks, buffers, stock accumulation/depletion |
+| **Operations** | Center | Activities, transformations, state changes, flows, rates, throughput and latency |
+| **Outcomes** | Right | Produced outputs, recipients, value, harms, displaced costs and environmental changes |
+| **Purpose & governance** | Above | Goals, operational targets, decision rights, constraints, incentives, enforcement, appeals |
+| **Observation & feedback** | Return path | Information provenance, sensing, delays, errors, reinforcing/balancing loops and corrective action |
+| **Viability & evaluation** | Below | Sustained operation, affected-party impacts, normative criteria, counterfactuals, intervention tests and revision |
+
+The same actor or resource can participate in multiple regions. Regions are **functions or analytical roles, not departments, exclusive partitions, or physical locations**. The boundary can expand to include regulators, supply chains, ecological systems or other strategic interactions.
+
+### Projections, not six disconnected diagrams
+
+The Structural, Behavioral, Epistemic, Deontic, Teleological and Evaluative **lenses are selectable emphasis on this same model**. They may reveal more detail: a dependency map, stock-flow model, causal loop, evidence provenance map, action situation/authority matrix, goal-conflict view or evaluation design. Preserve identities and record which connections are established, contested, hypothesized or unknown. A simple view should never imply a fully specified dynamic model.
+
+### Leverage points and revision
+
+A contextual intervention layer uses Meadows-inspired kinds of leverage: **stocks and buffers → flows/delays → feedback → information access → rules and authority → goals and paradigms**. These are *categories*, not one universally ranked list or guaranteed causal levers. A practitioner first locates the affected region, then asks what can actually be changed, by whom, with what observations and adverse effects.
+
+**Formal backplane (optional):** algebraic composition can clarify operations; coalgebraic perspectives can describe state-dependent behavior; categorical structures support interfaces/composition; control theory models dynamics and regulation; open games model selected strategic interactions; institutional analysis and epistemic/deontic frameworks clarify rules, information and authority. None of these mappings is automatic, and none substitutes for empirical validity.
+
+
+
 ## Reframed contribution: a practitioner interface to systems research
 
 **Primary proposal:** an accessible, problem-led procedure for **analysis, diagnosis, evaluation and refinement** of real human organizations and institutions. This is a methodological and interaction-design hypothesis, not a claim to have invented new systems laws.

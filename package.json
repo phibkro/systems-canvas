@@ -1,15 +1,24 @@
 {
   "name": "systems-canvas",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev .",
-    "docs:build": "vitepress build .",
-    "docs:preview": "vitepress preview ."
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^4.4.0",
+    "astro": "^5.13.0",
+    "mermaid": "^11.10.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "vitepress": "^1.6.4",
-    "vitepress-plugin-mermaid": "^2.0.0",
-    "mermaid": "^11.4.0"
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.9.2"
   }
 }

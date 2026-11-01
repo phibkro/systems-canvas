@@ -1,6 +1,50 @@
 # System Canvas — Core Thesis and Design
 
-**Provisional design thesis · v0.2**
+**Provisional practitioner-method thesis · v0.3**
+
+## Reframed contribution: a practitioner interface to systems research
+
+**Primary proposal:** an accessible, problem-led procedure for **analysis, diagnosis, evaluation and refinement** of real human organizations and institutions. This is a methodological and interaction-design hypothesis, not a claim to have invented new systems laws.
+
+The practitioner should not need to master VSM, IAD or open-game semantics before asking useful questions. The framework should instead reveal the theory **when the problem requires it**. Its principal design constraints are:
+
+1. **Problem first:** start with a concrete undesirable outcome and its affected parties, not a universal ontology.
+2. **Progressive disclosure:** a one-page overview first; expand into the necessary analytical lens, boundary or causal detail.
+3. **Traceability:** keep a route from each plain-language question to established theory, evidence, assumptions and alternative explanations.
+4. **Comprehensible but not misleading:** hide *unnecessary user-facing complexity*, not mechanisms, uncertainty or disagreement essential to a valid diagnosis.
+5. **Reflexivity:** include the analyst and regulator within the inquiry when their observations, incentives, metrics or authority change the system.
+6. **Revision over completeness:** treat the model as a temporary instrument for action, not a complete specification of an open, dynamic system.
+
+### Four capabilities, five optional procedural moves
+
+The four capabilities organize what users need: **analyze → diagnose → evaluate → refine**. These overlap and iterate; they are not a compulsory linear waterfall. The existing **Frame → Map → Explain → Redesign → Test/adapt** sequence is one lightweight *usage procedure*: frame/map support analysis, explain supports diagnosis, evaluation is continuous, and redesign/testing support refinement.
+
+The six lenses are **optional drill-downs**, not six panels every practitioner must fill. A map might be adequate with Structure and Authority alone; a claim-dispute case might require Knowledge and Authority; a viability question may warrant Behavior and Outcomes.
+
+### Relationship to prior art
+
+| Framework | Reuse rather than replace | Candidate usability contribution |
+|---|---|---|
+| **Ostrom IAD** | Action situations, rules, actor positions, information and nested institutional choices | Translate institutional prompts into accessible, case-led worksheets; connect rule changes to downstream mechanisms |
+| **Beer VSM / Espejo ECM** | Organizational viability, coordination, recursive regulation, observer-aware organizational diagnosis | Offer simple entry views and progressive zoom rather than requiring initial fluency in full cybernetic diagrams |
+| **4EM/EKD** | Goals, actors, processes, business rules, participatory enterprise modeling | Provide a sharper question-to-diagnosis-to-intervention workflow, not merely more diagram types |
+| **ArchiMate** | Consistent enterprise-architecture viewpoints and traceability | Link formal views to explanatory mechanisms, evidence and decisions |
+| **C4 / Business Model Canvas** | Audience-oriented abstraction levels and workshop-friendly orientation | Transfer visualization and facilitation patterns into sociotechnical analysis, without assuming those tools solve causal diagnosis |
+| **Second-order cybernetics / compositional open games** | Reflexive observation, nested governance and formal strategic interfaces | Use as *optional analytical escalations* for problems where observers or interacting incentive structures are causally relevant |
+
+**Non-novelty warning:** Espejo and others have already explored second-order organizational cybernetics; IAD models rule-changing levels, and 4EM already provides an accessible participatory process. Claims of innovation must therefore be tested **against these actual methods**, not against caricatures of their diagrams.
+
+### Abstraction and situated complexity
+
+Category theory offers a formal language of relationships and composition; it is **not itself a substitute for empirical explanation**. Biology and ecology provide concrete, complex examples of homeostasis, adaptation, interdependence and self-production. Organizational application requires specifying which features transfer and which remain analogy. An organization can regulate a variable (homeostasis) without being autopoietic; it can produce external outputs (allopoiesis) while also maintaining organizational structures. Do not label an institution biologically autopoietic merely because it persists.
+
+Human systems are open, temporal and partly unknown: participants reinterpret rules, respond strategically, contest goals and may adapt to the act of measurement. The correct model is a **selective, revisable representation**, not a complete one.
+
+### Evidence of success
+
+The design succeeds only if people can **apply** it, not merely admire or understand the visuals. Compare novice and expert users on correct mechanism identification, unsupported claims, appropriate intervention design, learning/transfer, time, workload, and communication clarity. A prettier diagram with worse causal judgments is a failure.
+
+
 
 ## Thesis
 

@@ -7,6 +7,15 @@
   "scripts": {
     "build": "bash scripts/build-stratus.sh",
     "dev": "bash scripts/build-stratus.sh && cd .stratus-build && npm run dev",
-    "preview": "cd .stratus-build && npm run preview"
+    "preview": "cd .stratus-build && npm run preview",
+    "test": "vitest run",
+    "test:property": "vitest run tests/state.property.test.mjs",
+    "test:mutation": "stryker run"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4",
+    "fast-check": "^4.3.0",
+    "@stryker-mutator/core": "^9.3.0",
+    "@stryker-mutator/vitest-runner": "^9.3.0"
   }
 }

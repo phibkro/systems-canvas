@@ -1,5 +1,8 @@
 # System Canvas — Practitioner Field Guide
 
+**Enterprise Canvas** is the practitioner interface to [Enterprise & Agency Modeling](/docs/enterprise-agency-modeling/). Its current worksheet emphasizes the [Enterprise Model](/docs/enterprise-model/); use the [Game Model](/docs/game-model/) when agents' choices, rules, information and incentives help explain outcomes. [Human Viable Systems](/docs/human-viable-systems/) provides optional, explicitly normative evaluation criteria.
+
+
 **Provisional method, not yet validated**
 
 ## Read the system spatially

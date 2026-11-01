@@ -32,3 +32,7 @@ Theory is an optional deep dive for learners, but essential to the scientific cl
 ## Status
 
 Working draft (November 2026). Examples are teaching scenarios unless accompanied by sources and evaluation. HVSM is a related human-centered normative perspective, not an implicit requirement of every System Canvas analysis.
+
+## Website
+
+The Astro + MDX website is configured for Cloudflare Pages using `npm run build` and the `dist` output directory. Explore the interactive six-lens journalism case at `/cases/journalism/` after deployment. See [DEPLOYMENT.md](DEPLOYMENT.md).

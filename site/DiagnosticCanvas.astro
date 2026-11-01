@@ -1,0 +1,80 @@
+---
+const fields=[
+ ['problem','Analyze','Problem','What outcome repeatedly occurs?'],
+ ['boundary','Analyze','People & boundary','Who participates, who is affected, and what is outside?'],
+ ['mechanism','Diagnose','Mechanism','What might reproduce the outcome?'],
+ ['evidence','Diagnose','Evidence & uncertainty','What supports this, and what could falsify it?'],
+ ['judgment','Evaluate','Consequences','For whom is the outcome beneficial or harmful?'],
+ ['change','Refine','Change & test','Who can change what, and how would we learn?']
+];
+const example={
+ problem:'A hypothetical newsroom repeatedly favors high-visibility stories over slower investigations.',
+ boundary:'Reporters, editors, audiences, a distribution platform; external funders and regulators may also matter.',
+ mechanism:'Hypothesis: attention metrics influence editorial choices, which change future visibility signals.',
+ evidence:'Unverified example. Needed: editorial decision records, distribution metrics, interviews. Rival hypothesis: financing constraints independently favor faster work.',
+ judgment:'Readers may gain timely updates but lose investigations; staff may face pressure; short-term revenue could benefit owners. Effects unmeasured.',
+ change:'Pilot protected investigative capacity. Compare quality, cost and workload against a suitable baseline; editors must authorize the test.'
+};
+const lenses=[
+ ['Structure','Enterprise architecture / VSM','Which resources, actors and dependencies matter?','Would a missing coordination channel explain the problem?'],
+ ['Behavior','Cybernetics','What feedback, repeated actions and delays maintain it?','Which arrows are observed, rather than inferred?'],
+ ['Knowledge','Evidence practices','Who can verify, dispute or correct information?','Is this a fact, claim, interpretation or belief?'],
+ ['Authority','IAD / governance','Who makes and changes rules, and who can appeal?','Can affected people influence a rule or only obey it?'],
+ ['Purpose','4EM / goal modeling','Where do stated purposes and rewarded objectives diverge?','What goal is documented, and what goal is inferred?'],
+ ['Outcomes','Evaluation / sustainability','Who gains or loses, on what timescale?','Which observation would falsify the success claim?']
+];
+---
+<section class="prototype" data-prototype aria-label="Editable System Canvas diagnostic worksheet">
+ <header class="top">
+  <div><strong>System Canvas / Minimum viable diagnosis</strong><small>Experimental worksheet · no account needed</small></div>
+  <div class="actions"><button type="button" data-action="example">Example</button><button type="button" data-action="blank">Blank</button><button type="button" data-action="export">Export JSON</button><button type="button" data-action="print">Print</button></div>
+ </header>
+ <p class="lead">Start with the problem, not a theory. Fill only what helps you reach a justified decision. The numbered prompts are not mandatory sequential stages.</p>
+ <div class="capabilities"><span>Analyze</span><span>Diagnose</span><span>Evaluate</span><span>Refine</span></div>
+ <div class="worksheet">
+ {fields.map(([key,group,name,prompt],i)=><div class="field">
+  <div class="fieldtitle"><span class="number">{String(i+1).padStart(2,'0')}</span><div><small>{group}</small><label for={'worksheet-'+key}>{name}</label></div></div>
+  <p>{prompt}</p>
+  <textarea id={'worksheet-'+key} data-key={key} rows="4">{example[key]}</textarea>
+ </div>)}
+ </div>
+ <div class="checks">
+  <div><strong>Evidence check</strong><p>Distinguish observed, source-supported, hypothesized and unknown claims. Give at least one alternative explanation.</p></div>
+  <div><strong>Reflexive check</strong><p>Who chose the problem, metrics and rules? Who may challenge them? Expand the boundary if this changes the diagnosis.</p></div>
+ </div>
+ <details class="deeper">
+  <summary><strong>Need a deeper view?</strong><span>Choose a lens only when it may change a meaningful diagnosis or decision.</span></summary>
+  <div class="lens-buttons">{lenses.map((lens,i)=><button type="button" data-lens={i} aria-pressed={i===0?'true':'false'}>{lens[0]}</button>)}</div>
+  <div class="lens-panel"><small data-theory>{lenses[0][1]}</small><h3 data-question>{lenses[0][2]}</h3><p><strong>Check:</strong> <span data-test>{lenses[0][3]}</span></p><label for="lens-notes">What did this view reveal?</label><textarea id="lens-notes" data-notes rows="3" placeholder="Optional notes"></textarea></div>
+ </details>
+ <p class="status" data-status aria-live="polite">Example loaded. Work stays in this browser tab; export it to keep a copy.</p>
+</section>
+<script define:vars={{example,lenses}}>
+ document.querySelectorAll('[data-prototype]').forEach(root=>{
+   const fields=Object.keys(example);
+   const el=k=>root.querySelector('[data-key="'+k+'"]');
+   const notify=s=>root.querySelector('[data-status]').textContent=s;
+   let lens=0, notes={};
+   function renderLens(){
+     root.querySelector('[data-theory]').textContent=lenses[lens][1];
+     root.querySelector('[data-question]').textContent=lenses[lens][2];
+     root.querySelector('[data-test]').textContent=lenses[lens][3];
+     root.querySelector('[data-notes]').value=notes[lenses[lens][0]]||'';
+     root.querySelectorAll('[data-lens]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.lens)===lens)));
+   }
+   root.querySelector('[data-action="example"]').addEventListener('click',()=>{fields.forEach(k=>el(k).value=example[k]);notes={};renderLens();notify('Hypothetical example restored.')});
+   root.querySelector('[data-action="blank"]').addEventListener('click',()=>{fields.forEach(k=>el(k).value='');notes={};renderLens();notify('Blank canvas ready.')});
+   root.querySelectorAll('[data-lens]').forEach(b=>b.addEventListener('click',()=>{notes[lenses[lens][0]]=root.querySelector('[data-notes]').value;lens=Number(b.dataset.lens);renderLens()}));
+   root.querySelector('[data-notes]').addEventListener('input',e=>{notes[lenses[lens][0]]=e.target.value});
+   root.querySelector('[data-action="export"]').addEventListener('click',()=>{
+     const data={schema:'system-canvas/worksheet-v0.1',createdAt:new Date().toISOString(),answers:Object.fromEntries(fields.map(k=>[k,el(k).value])),lensNotes:notes};
+     const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
+     const a=document.createElement('a');a.href=url;a.download='system-canvas-worksheet.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);notify('JSON exported. No information was uploaded.');
+   });
+   root.querySelector('[data-action="print"]').addEventListener('click',()=>window.print());
+   root.querySelectorAll('textarea').forEach(e=>e.addEventListener('input',()=>notify('Unsaved edits in this tab. Export JSON to keep a copy.')));
+ });
+</script>
+<style>
+.prototype{color:var(--color-text,#e2eeeb);border:1px solid var(--color-border,#58736d);border-radius:14px;padding:clamp(16px,2.5vw,26px);margin:22px 0;background:var(--color-surface,#17292a)}.prototype *{box-sizing:border-box}.top{display:flex;gap:14px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}.top strong{display:block;font-size:16px}.top small{font-size:11px;display:block;opacity:.75;margin-top:4px}.actions,.lens-buttons{display:flex;gap:6px;flex-wrap:wrap}.actions button,.lens-buttons button{font-size:12px;cursor:pointer;color:inherit;background:transparent;border:1px solid #69958c;padding:8px 10px;border-radius:7px}.actions button:hover,.lens-buttons button:hover{border-color:#7bd9b8}.prototype button:focus-visible,.prototype textarea:focus-visible{outline:2px solid #7bd9b8;outline-offset:2px}.lead{font-size:13px;line-height:1.65;margin:18px 0}.capabilities{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:12px}.capabilities span{text-align:center;border-bottom:3px solid #5c9d86;padding:8px 2px;font-size:12px;font-weight:700}.worksheet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{min-width:0;border:1px solid #66817d;border-radius:9px;padding:15px}.fieldtitle{display:flex;align-items:center;gap:9px}.fieldtitle .number{font-weight:700;font-size:11px;background:#27705b;color:white;padding:9px;border-radius:7px}.fieldtitle small{font-size:10px;text-transform:uppercase;letter-spacing:.07em;display:block;opacity:.75}.fieldtitle label{font-weight:700;font-size:15px;display:block}.field p{font-size:12px;margin:10px 0;line-height:1.5}.prototype textarea{width:100%;resize:vertical;min-height:96px;border:1px solid #66817d;border-radius:7px;background:transparent;color:inherit;font:inherit;font-size:12px;padding:10px;line-height:1.6}.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}.checks>div{border-left:3px solid #5c9d86;padding:8px 14px}.checks strong{font-size:12px}.checks p{font-size:12px;line-height:1.65;margin:5px 0}.deeper{border-top:1px solid #66817d;padding-top:14px}.deeper summary{cursor:pointer}.deeper summary strong{font-size:14px}.deeper summary span{display:block;opacity:.8;font-size:12px;margin:5px 0}.lens-buttons{margin:17px 0}.lens-buttons button[aria-pressed=true]{background:#27705b;color:#fff}.lens-panel{border:1px solid #66817d;border-radius:8px;padding:14px}.lens-panel small{opacity:.75;font-size:11px}.lens-panel h3{font-size:16px!important;margin:8px 0!important}.lens-panel p{font-size:12px}.lens-panel label{display:block;margin:12px 0 7px;font-size:12px;font-weight:700}.status{font-size:11px;opacity:.8;margin:15px 0 0}@media(max-width:640px){.worksheet,.checks{grid-template-columns:1fr}.capabilities span{font-size:10px}}@media print{.actions,.deeper,.status{display:none!important}.prototype{border:0}.field{break-inside:avoid}.prototype textarea{color:#111}}
+</style>

@@ -2,6 +2,22 @@
 
 **Six-module course · theory-optional · v0.3**
 
+## Visual lesson: implicit cybernetics in one canvas
+
+The same spatial arrangement should remain recognizable from a beginner's overview to an expert's dynamic model. Start with left-to-right **capacity → operations → outcomes**. Introduce **governance above**, **viability and evaluation below**, and **feedback looping back** only when the learner asks what directs, sustains or corrects the system.
+
+```mermaid
+flowchart LR
+  A["Capacity"] --> B["Operations"] --> C["Outcomes"]
+  C -. "Observation and feedback" .-> A
+```
+
+**Progressive exercise:** (1) identify inputs/outputs without jargon; (2) mark where resources accumulate and flow; (3) distinguish measurement from control; (4) add rules, goals and legitimacy; (5) find a Meadows-inspired leverage category and name the evidence needed to test an intervention. Preserve the same entities across each view. This is a teaching progression, not a statement that all systems work in the same way.
+
+Compare with the Business Model Canvas's implicit value architecture and with C4's audience-based levels, while using IAD, VSM/ECM and 4EM as substantive models where their distinctions matter.
+
+
+
 ## Learning design: progressively disclose complexity
 
 The **default learner path is practical**: recognize a problem → sketch the smallest useful boundary → propose a reproducing mechanism → check who benefits, decides and bears costs → choose what to change → gather evidence and revise. The four practitioner capabilities are **analysis, diagnosis, evaluation and refinement**. The six lenses and five moves are *scaffolds*, not material students must memorize before doing an exercise.

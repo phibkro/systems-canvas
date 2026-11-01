@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "dev": "node scripts/prepare-stratus.mjs && cd .stratus-build && npm run dev",
+    "build": "bash scripts/build-stratus.sh",
+    "preview": "cd .stratus-build && npm run preview",
     "check": "astro check"
   },
   "dependencies": {

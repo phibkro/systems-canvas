@@ -14,7 +14,7 @@ const changes = [
  {name:'Shared appeals process',effect:'Appeals might improve procedural accountability.',risk:'Procedural complexity and unequal participation.'}
 ];
 ---
-<section class="canvas-demo" aria-label="Interactive System Canvas analysis">
+<section class="canvas-demo" data-sc-config={JSON.stringify({views,changes})} aria-label="Interactive System Canvas analysis">
   <div class="demo-header"><strong>System Canvas / Journalism ecosystem</strong><span>Hypothetical case</span></div>
   <div class="lens-tabs" role="group" aria-label="Choose an analytical lens">
     {views.map((v,i)=><button type="button" data-lens={i} aria-pressed={i===0?'true':'false'}>{v.name}</button>)}
@@ -37,25 +37,7 @@ const changes = [
   <p><strong>Potential drawback:</strong> <span id="case-risk">{changes[0].risk}</span></p>
   <p class="disclaimer">These relationships are illustrative, not evidence of a real platform or a numerical simulation.</p>
 </section>
-<script define:vars={{views,changes}}>
-  const root=document.querySelector('.canvas-demo');
-  if(root){
-    root.querySelectorAll('[data-lens]').forEach(b=>b.addEventListener('click',()=>{
-      const index=Number(b.dataset.lens),v=views[index];
-      root.querySelectorAll('[data-lens]').forEach(tab=>tab.setAttribute('aria-pressed',String(tab===b)));
-      root.querySelector('#lens-prompt').textContent=v.prompt;
-      root.querySelector('#edge-one').textContent=v.edges[0];
-      root.querySelector('#edge-two').textContent=v.edges[1];
-      root.querySelector('#lens-insight').textContent=v.insight;
-      root.querySelector('#lens-test').textContent=v.test;
-    }));
-    root.querySelector('#case-intervention').addEventListener('change',e=>{
-      const c=changes[Number(e.target.value)];
-      root.querySelector('#case-effect').textContent=c.effect;
-      root.querySelector('#case-risk').textContent=c.risk;
-    });
-  }
-</script>
+
 <style>
 .canvas-demo{padding:clamp(16px,3vw,26px);border:1px solid var(--color-border,#415056);border-radius:14px;background:var(--color-surface,#18272a);color:var(--color-text,#e6f1ee);margin:30px 0}
 .demo-header{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:13px;margin-bottom:18px}.demo-header span{color:var(--color-accent,#6ed4b6)}

@@ -1,6 +1,31 @@
 # System Canvas — Learn by Redesigning Systems
 
-**Six-module course · theory-optional · v0.2**
+**Six-module course · theory-optional · v0.3**
+
+## Learning design: progressively disclose complexity
+
+The **default learner path is practical**: recognize a problem → sketch the smallest useful boundary → propose a reproducing mechanism → check who benefits, decides and bears costs → choose what to change → gather evidence and revise. The four practitioner capabilities are **analysis, diagnosis, evaluation and refinement**. The six lenses and five moves are *scaffolds*, not material students must memorize before doing an exercise.
+
+| Layer | What the learner sees | When to disclose more |
+|---|---|---|
+| **Orientation** | One question, one simple picture, one decision | A stakeholder cannot understand the boundary or result |
+| **Working diagnosis** | Relevant actors, mechanism, competing explanation and evidence tags | The causal explanation remains ambiguous |
+| **Focused analytical view** | One or two of the six lenses | Rules, information, power or feedback matter to the mechanism |
+| **Theoretical depth** | IAD, VSM/ECM, 4EM, causal inference, second-order cybernetics or open games | A student needs greater precision, comparative critique or predictive structure |
+
+**Visual grammar:** C4-style zoom and stable actor identity; Business Model Canvas-style workshop orientation; 4EM/ArchiMate-style linked viewpoints. Do not transplant jargon or the full diagrams as prerequisites.
+
+### Teaching an honest simplification
+
+A one-page diagram must support a real judgment, not erase uncertainty. Each worked example should include: (1) the smallest adequate diagram, (2) a case where it produces a wrong or incomplete inference, (3) the single additional view that fixes the problem, and (4) the evidence required to assess that inference.
+
+**Before optional theory**, learners should be able to answer: *Which relationships are observed? Which mechanisms are hypothetical? Who could act? What would change your mind?*
+
+### Expanded learning assessment
+
+Retain the existing rubric and independently measure **time-to-competence**, correctness on an unseen case, diagram comprehension versus diagnostic performance, ability to select only relevant views, unnecessary modeling effort, cognitive workload, and error patterns. Compare with realistic instruction in IAD, VSM, 4EM or a standard organizational workshop—not only unaided learners.
+
+
 
 ## Learning outcome
 

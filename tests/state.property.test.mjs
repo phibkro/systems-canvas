@@ -92,3 +92,72 @@ describe("reducer invariants",()=>{
     }),{numRuns:75});
   });
 });
+
+
+describe("invalid states must be rejected",()=>{
+  it("rejects null, arrays and unknown variants without throwing",()=>{
+    for(const cfg of Object.values(configs)){
+      for(const invalid of [null,undefined,[],{}, {kind:"wrong"}, {kind:cfg.kind,lens:-1}].slice(0,5)){
+        expect(assertValid(invalid,cfg)).toBe(false);
+      }
+    }
+  });
+  it("rejects map's impossible control states",()=>{
+    const cfg=configs.map,base=initialState(cfg);
+    for(const patch of [
+      {view:"missing"},{view:undefined},{leversOpen:"yes"},
+      {leversOpen:false,lever:"rules"},{leversOpen:true,lever:"unknown"},
+      {leversOpen:true,lever:12},{leversOpen:null}
+    ])expect(assertValid({...base,...patch},cfg)).toBe(false);
+  });
+  it("rejects invalid case lens and intervention indices",()=>{
+    const cfg=configs.case,base=initialState(cfg);
+    for(const patch of [
+      {lens:-1},{lens:cfg.views.length},{lens:1.5},{lens:"0"},
+      {intervention:-1},{intervention:cfg.changes.length},
+      {intervention:NaN},{intervention:"1"}
+    ])expect(assertValid({...base,...patch},cfg)).toBe(false);
+  });
+  it("rejects invalid worksheet records and individual fields",()=>{
+    const cfg=configs.worksheet,base=initialState(cfg);
+    for(const patch of [
+      {lens:-1},{lens:cfg.lenses.length},{lens:"0"},
+      {answers:null},{answers:[]},{answers:{}},
+      {answers:{...base.answers,problem:100}},
+      {answers:{...base.answers,extra:"unrecognized"}},
+      {notes:null},{notes:[]},{notes:{Unknown:"value"}},
+      {notes:{Structure:123}},{notice:42}
+    ])expect(assertValid({...base,...patch},cfg)).toBe(false);
+  });
+  it("fuzzes invalid worksheet field types and missing answers",()=>{
+    const cfg=configs.worksheet;
+    fc.assert(fc.property(
+      fc.constantFrom(...Object.keys(cfg.example)),
+      fc.oneof(fc.integer(),fc.boolean(),fc.constant(null),fc.constant(undefined)),
+      (key,value)=>{
+        const base=initialState(cfg);
+        const answers={...base.answers,[key]:value};
+        expect(assertValid({...base,answers},cfg)).toBe(false);
+        delete answers[key];
+        expect(assertValid({...base,answers},cfg)).toBe(false);
+      }
+    ),{numRuns:200});
+  });
+  it("unknown and malformed events are no-ops",()=>{
+    for(const cfg of Object.values(configs)){
+      const state=initialState(cfg);
+      for(const action of [undefined,null,{},false,7,"bad",{type:7},{type:"unrecognized"}]){
+        expect(reduce(state,action,cfg)).toBe(state);
+      }
+    }
+  });
+  it("initial state variants are fully specified",()=>{
+    expect(initialState(configs.map)).toEqual({kind:"map",view:"overview",leversOpen:false,lever:null});
+    expect(initialState(configs.case)).toEqual({kind:"case",lens:0,intervention:0});
+    expect(initialState(configs.worksheet)).toEqual({
+      kind:"worksheet",lens:0,answers:configs.worksheet.example,notes:{},
+      notice:"Example loaded. Work stays in this browser tab; export JSON to keep it."
+    });
+    expect(()=>initialState({kind:"invalid"})).toThrow(TypeError);
+  });
+});

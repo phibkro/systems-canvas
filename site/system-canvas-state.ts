@@ -22,7 +22,7 @@ export const WorksheetStateSchema = v.strictObject({
   notes: v.record(v.string(), v.string()),
   notice: v.string()
 });
-export const StateSchema = v.variant("kind", [
+export const StateSchema = v.union([
   // MapStateSchema is itself a variant: use this union as the public state contract.
   MapClosed, MapOpen, CaseStateSchema, WorksheetStateSchema
 ]);
@@ -47,7 +47,7 @@ const WorksheetConfigSchema = v.looseObject({
   example:v.record(v.string(),v.string()),
   lenses:v.pipe(v.array(v.pipe(v.array(v.string()),v.minLength(1))),v.minLength(1))
 });
-export const ConfigSchema = v.variant("kind", [
+export const ConfigSchema = v.union([
   MapConfigSchema,CaseConfigSchema,WorksheetConfigSchema
 ]);
 export type Config = v.InferOutput<typeof ConfigSchema>;

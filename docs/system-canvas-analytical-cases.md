@@ -2,6 +2,33 @@
 
 **Illustrative analytical hypotheses, not empirical findings**
 
+## Case presentation standard: smallest useful model first
+
+Each case should demonstrate how accessible modeling progresses **only when necessary**, rather than displaying the entire six-lens system immediately.
+
+1. **One-minute orientation:** a single problem, boundary, participants and observed outcome.
+2. **Minimum working explanation:** one plausible reproducing mechanism, evidence tags and an alternative.
+3. **One revealing drill-down:** introduce the lens that most changes the diagnosis (for example Authority in workplace governance, Knowledge in journalism).
+4. **Comparative interpretation:** what would IAD, VSM/ECM or 4EM make especially visible, and what is omitted in the simple sketch?
+5. **Decision and test:** a feasible intervention, consent/authority, intended outcomes, risks and indicators.
+6. **Return to the simple canvas:** retain only the detail that changes a consequential decision.
+
+### Example: workplace decision rights
+
+**Orientation:** work is performed by one group, while budgets and operating rules are controlled elsewhere.
+
+**First picture:** workers ↔ managers ↔ owners/board; connect work, information, budgets and rule changes.
+
+**Diagnostic question:** Why does repeated reporting of a problem fail to produce an improvement? An IAD-style rule analysis might reveal that reporting participants lack access to a rule-changing action situation; VSM may ask whether coordination and adaptation functions have adequate channels; 4EM may expose divergence between goals, business rules and processes.
+
+**Second-order escalation:** who decides which performance metric counts, and who can challenge it?
+
+**Provisional redesign:** give affected workers a documented decision channel, evaluate actual authority changes and compare service/employee outcomes. **Do not infer** that worker participation necessarily improves performance without evidence.
+
+This case shows why multiple views might help, but it is **not** evidence that System Canvas outperforms the source methods. Comparative studies must measure actual practitioner understanding and diagnostic correctness.
+
+
+
 ## Why these cases?
 
 They test whether one method can track structure, behavior, knowledge, rules, goals and results across distinct domains *without assuming everything is a game*. They provide teaching material and an agenda for future evidence gathering.

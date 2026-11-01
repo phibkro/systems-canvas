@@ -1,3 +1,4 @@
+import {execFileSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 const root=process.cwd(), target=path.join(root,'.stratus-build'), docsDir=path.join(target,'src/content/docs');
@@ -29,8 +30,13 @@ for(const [input,title,group,order] of entries){
  write(path.join(docsDir,input.replace(/\.md$/,'.mdx')),
   '---\ntitle: '+JSON.stringify(title)+'\ndescription: '+JSON.stringify('System Canvas · '+title)+'\ngroup: '+JSON.stringify(group)+'\norder: '+order+'\n---\n\n'+body);
 }
-write(path.join(target,'public/system-canvas-interactions.js'),fs.readFileSync(path.join(root,'site/system-canvas-interactions.js'),'utf8'));
-write(path.join(target,'public/system-canvas-state.mjs'),fs.readFileSync(path.join(root,'site/system-canvas-state.mjs'),'utf8'));
+// Compile the TypeScript/Valibot state machine into one self-contained browser module.
+fs.mkdirSync(path.join(target,'public'),{recursive:true});
+execFileSync(path.join(root,'node_modules/.bin/esbuild'),[
+  path.join(root,'site/system-canvas-interactions.js'),
+  '--bundle','--platform=browser','--format=esm','--target=es2022',
+  '--outfile='+path.join(target,'public/system-canvas-interactions.js')
+],{stdio:'inherit'});
 modify(path.join(target,'src/layouts/BaseLayout.astro'),layout=>layout.replace('<ClientRouter />','<script is:inline type="module" src="/system-canvas-interactions.js"></script>\n    <ClientRouter />'));
 write(path.join(target,'src/components/custom/CaseExplorer.astro'),fs.readFileSync(path.join(root,'site/CaseExplorer.astro'),'utf8'));
 write(path.join(target,'src/components/custom/DiagnosticCanvas.astro'),fs.readFileSync(path.join(root,'site/DiagnosticCanvas.astro'),'utf8'));

@@ -1,0 +1,32 @@
+# Six-aspect System Canvas using D2 grid, row-major placement
+direction: right
+grid-rows: 3
+grid-columns: 3
+grid-gap: 48
+classes: {
+  invisible: { style.opacity: 0 }
+  authority: { style: { fill: "#393322"; stroke: "#e5bc72"; font-color: "#fff3dd"; border-radius: 14 } }
+  purpose: { style: { fill: "#33283f"; stroke: "#c5a0ed"; font-color: "#f7ebff"; border-radius: 14 } }
+  structure: { style: { fill: "#153c34"; stroke: "#69d5b1"; font-color: "#e9fff7"; border-radius: 14 } }
+  behavior: { style: { fill: "#183c4b"; stroke: "#83c9e5"; font-color: "#e9f7ff"; border-radius: 14 } }
+  outcomes: { style: { fill: "#26324a"; stroke: "#a9bafa"; font-color: "#eef3ff"; border-radius: 14 } }
+  knowledge: { style: { fill: "#302940"; stroke: "#c5a0ed"; font-color: "#f3eaff"; border-radius: 14 } }
+}
+authority: "AUTHORITY\nRules · roles · permissions" { class: authority; width: 295; height: 115 }
+padTop.class: invisible
+purpose: "PURPOSE\nGoals · values · direction" { class: purpose; width: 295; height: 115 }
+structure: "STRUCTURE\nActors · resources · dependencies" { class: structure; width: 295; height: 145 }
+behavior: "BEHAVIOR\nProcesses · decisions · flows" { class: behavior; width: 295; height: 145 }
+outcomes: "OUTCOMES\nValue · harms · externalities" { class: outcomes; width: 295; height: 145 }
+padBottomLeft.class: invisible
+knowledge: "KNOWLEDGE\nObservation · evidence · uncertainty" { class: knowledge; width: 295; height: 115 }
+padBottomRight.class: invisible
+structure -> behavior
+behavior -> outcomes
+authority -> structure
+authority -> behavior
+purpose -> behavior
+purpose -> outcomes
+outcomes -> knowledge
+knowledge -> authority
+knowledge -> purpose

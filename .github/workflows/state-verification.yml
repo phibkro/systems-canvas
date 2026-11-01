@@ -21,7 +21,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: npm
       - run: npm install --no-audit --no-fund
       - run: npm test
   mutation-tests:
@@ -33,7 +32,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: npm
       - run: npm install --no-audit --no-fund
       - run: npm run test:mutation
       - uses: actions/upload-artifact@v4

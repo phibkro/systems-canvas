@@ -7,23 +7,39 @@
 The **overview canvas** should communicate system dynamics implicitly, as the Business Model Canvas does for business models. It is **not** a universal causal graph or a replacement for VSM, IAD, 4EM, ArchiMate or formal models. Spatial positions are stable across views.
 
 ```mermaid
-flowchart TB
-  G["PURPOSE & GOVERNANCE<br/>Goals · Rules · Authority"]
-  subgraph S["SYSTEM BOUNDARY — REVISABLE"]
-    direction LR
-    C["CAPACITY<br/>Actors · Resources<br/>Stocks · Dependencies"]
-    O["OPERATIONS<br/>Processes · Decisions<br/>Flows · Delays"]
-    E["OUTCOMES<br/>Recipients · Value<br/>Harms · Externalities"]
-    C -->|"Inputs / enabling conditions"| O -->|"Outputs / effects"| E
-  end
-  F["OBSERVATION & FEEDBACK<br/>Signals · Evidence · Corrections"]
-  V["VIABILITY & EVALUATION<br/>Baseline · Trade-offs · Revision"]
-  G -. "Constraints / control" .-> O
-  E -. "Observed effects" .-> F
-  F -. "Signals / adjustment" .-> C
-  F -. "Information for governance" .-> G
-  E --> V
-  V -. "Learning / governance revision" .-> G
+block
+  columns 3
+  A["AUTHORITY<br/>Rules · roles · permissions"]
+  space
+  P["PURPOSE<br/>Goals · values · direction"]
+  S["STRUCTURE<br/>Actors · resources · dependencies"]
+  B["BEHAVIOR<br/>Processes · decisions · flows"]
+  O["OUTCOMES<br/>Value · harms · externalities"]
+  space
+  K["KNOWLEDGE<br/>Observation · evidence · uncertainty"]:2
+
+  S --> B
+  B --> O
+  A -.-> S
+  A -.-> B
+  P -.-> B
+  P -.-> O
+  O -.-> K
+  K -.-> A
+  K -.-> P
+
+  classDef foundation fill:#143c36,stroke:#67c1a6,color:#e9faf4
+  classDef operation fill:#183e54,stroke:#79bfe5,color:#eef8fd
+  classDef impact fill:#313450,stroke:#aeb6fa,color:#f5f4ff
+  classDef oversight fill:#423820,stroke:#e3c276,color:#fff6df
+  classDef intention fill:#372c4b,stroke:#c0a4ec,color:#faf1ff
+  classDef evidence fill:#302a49,stroke:#ad9bea,color:#f6f1ff
+  class S foundation
+  class B operation
+  class O impact
+  class A oversight
+  class P intention
+  class K evidence
 ```
 
 **Interpretation:** left to right indicates enabling inputs, transformations and effects; above indicates purposes, rules and control; below indicates evaluation, accumulated consequences and redesign; the returning path indicates observations and feedback. This is an *orientation* for inquiry, not a claim that the arrows exist or have known causal strengths in every case.

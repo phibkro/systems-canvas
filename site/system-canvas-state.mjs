@@ -61,7 +61,8 @@ export function reduce(state, action, config) {
   return state;
 }
 export function assertValid(state, config) {
-  if (state.kind!==config.kind) return false;
+  const record = value=>value!==null && typeof value==="object" && !Array.isArray(value);
+  if (!record(state) || !record(config) || state.kind!==config.kind) return false;
   if (state.kind==="map")
     return config.lenses.some(x=>x.id===state.view)
       && typeof state.leversOpen==="boolean"
@@ -70,7 +71,8 @@ export function assertValid(state, config) {
     return Number.isInteger(state.lens) && state.lens>=0 && state.lens<config.views.length
       && Number.isInteger(state.intervention) && state.intervention>=0 && state.intervention<config.changes.length;
   if (state.kind==="worksheet")
-    return Number.isInteger(state.lens) && state.lens>=0 && state.lens<config.lenses.length
+    return record(state.answers) && record(state.notes)
+      && Number.isInteger(state.lens) && state.lens>=0 && state.lens<config.lenses.length
       && Object.keys(state.answers).length===Object.keys(config.example).length
       && Object.keys(config.example).every(k=>has(state.answers,k)&&typeof state.answers[k]==="string")
       && Object.keys(state.notes).every(k=>config.lenses.some(v=>v[0]===k)&&typeof state.notes[k]==="string")

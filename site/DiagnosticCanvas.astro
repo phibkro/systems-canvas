@@ -24,7 +24,7 @@ const lenses=[
  ['Outcomes','Evaluation / sustainability','Who gains or loses, on what timescale?','Which observation would falsify the success claim?']
 ];
 ---
-<section class="prototype" data-prototype aria-label="Editable System Canvas diagnostic worksheet">
+<section class="prototype" data-prototype data-sc-config={JSON.stringify({example,lenses})} aria-label="Editable System Canvas diagnostic worksheet">
  <header class="top">
   <div><strong>System Canvas / Minimum viable diagnosis</strong><small>Experimental worksheet · no account needed</small></div>
   <div class="actions"><button type="button" data-action="example">Example</button><button type="button" data-action="blank">Blank</button><button type="button" data-action="export">Export JSON</button><button type="button" data-action="print">Print</button></div>
@@ -49,32 +49,7 @@ const lenses=[
  </details>
  <p class="status" data-status aria-live="polite">Example loaded. Work stays in this browser tab; export it to keep a copy.</p>
 </section>
-<script define:vars={{example,lenses}}>
- document.querySelectorAll('[data-prototype]').forEach(root=>{
-   const fields=Object.keys(example);
-   const el=k=>root.querySelector('[data-key="'+k+'"]');
-   const notify=s=>root.querySelector('[data-status]').textContent=s;
-   let lens=0, notes={};
-   function renderLens(){
-     root.querySelector('[data-theory]').textContent=lenses[lens][1];
-     root.querySelector('[data-question]').textContent=lenses[lens][2];
-     root.querySelector('[data-test]').textContent=lenses[lens][3];
-     root.querySelector('[data-notes]').value=notes[lenses[lens][0]]||'';
-     root.querySelectorAll('[data-lens]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.lens)===lens)));
-   }
-   root.querySelector('[data-action="example"]').addEventListener('click',()=>{fields.forEach(k=>el(k).value=example[k]);notes={};renderLens();notify('Hypothetical example restored.')});
-   root.querySelector('[data-action="blank"]').addEventListener('click',()=>{fields.forEach(k=>el(k).value='');notes={};renderLens();notify('Blank canvas ready.')});
-   root.querySelectorAll('[data-lens]').forEach(b=>b.addEventListener('click',()=>{notes[lenses[lens][0]]=root.querySelector('[data-notes]').value;lens=Number(b.dataset.lens);renderLens()}));
-   root.querySelector('[data-notes]').addEventListener('input',e=>{notes[lenses[lens][0]]=e.target.value});
-   root.querySelector('[data-action="export"]').addEventListener('click',()=>{
-     const data={schema:'system-canvas/worksheet-v0.1',createdAt:new Date().toISOString(),answers:Object.fromEntries(fields.map(k=>[k,el(k).value])),lensNotes:notes};
-     const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
-     const a=document.createElement('a');a.href=url;a.download='system-canvas-worksheet.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);notify('JSON exported. No information was uploaded.');
-   });
-   root.querySelector('[data-action="print"]').addEventListener('click',()=>window.print());
-   root.querySelectorAll('textarea').forEach(e=>e.addEventListener('input',()=>notify('Unsaved edits in this tab. Export JSON to keep a copy.')));
- });
-</script>
+
 <style>
 .prototype{color:var(--color-text,#e2eeeb);border:1px solid var(--color-border,#58736d);border-radius:14px;padding:clamp(16px,2.5vw,26px);margin:22px 0;background:var(--color-surface,#17292a)}.prototype *{box-sizing:border-box}.top{display:flex;gap:14px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}.top strong{display:block;font-size:16px}.top small{font-size:11px;display:block;opacity:.75;margin-top:4px}.actions,.lens-buttons{display:flex;gap:6px;flex-wrap:wrap}.actions button,.lens-buttons button{font-size:12px;cursor:pointer;color:inherit;background:transparent;border:1px solid #69958c;padding:8px 10px;border-radius:7px}.actions button:hover,.lens-buttons button:hover{border-color:#7bd9b8}.prototype button:focus-visible,.prototype textarea:focus-visible{outline:2px solid #7bd9b8;outline-offset:2px}.lead{font-size:13px;line-height:1.65;margin:18px 0}.capabilities{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:12px}.capabilities span{text-align:center;border-bottom:3px solid #5c9d86;padding:8px 2px;font-size:12px;font-weight:700}.worksheet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{min-width:0;border:1px solid #66817d;border-radius:9px;padding:15px}.fieldtitle{display:flex;align-items:center;gap:9px}.fieldtitle .number{font-weight:700;font-size:11px;background:#27705b;color:white;padding:9px;border-radius:7px}.fieldtitle small{font-size:10px;text-transform:uppercase;letter-spacing:.07em;display:block;opacity:.75}.fieldtitle label{font-weight:700;font-size:15px;display:block}.field p{font-size:12px;margin:10px 0;line-height:1.5}.prototype textarea{width:100%;resize:vertical;min-height:96px;border:1px solid #66817d;border-radius:7px;background:transparent;color:inherit;font:inherit;font-size:12px;padding:10px;line-height:1.6}.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}.checks>div{border-left:3px solid #5c9d86;padding:8px 14px}.checks strong{font-size:12px}.checks p{font-size:12px;line-height:1.65;margin:5px 0}.deeper{border-top:1px solid #66817d;padding-top:14px}.deeper summary{cursor:pointer}.deeper summary strong{font-size:14px}.deeper summary span{display:block;opacity:.8;font-size:12px;margin:5px 0}.lens-buttons{margin:17px 0}.lens-buttons button[aria-pressed=true]{background:#27705b;color:#fff}.lens-panel{border:1px solid #66817d;border-radius:8px;padding:14px}.lens-panel small{opacity:.75;font-size:11px}.lens-panel h3{font-size:16px!important;margin:8px 0!important}.lens-panel p{font-size:12px}.lens-panel label{display:block;margin:12px 0 7px;font-size:12px;font-weight:700}.status{font-size:11px;opacity:.8;margin:15px 0 0}@media(max-width:640px){.worksheet,.checks{grid-template-columns:1fr}.capabilities span{font-size:10px}}@media print{.actions,.deeper,.status{display:none!important}.prototype{border:0}.field{break-inside:avoid}.prototype textarea{color:#111}}
 </style>

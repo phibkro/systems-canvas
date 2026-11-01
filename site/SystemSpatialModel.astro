@@ -18,7 +18,7 @@ const leverage=[
  {id:'goals',label:'Goals & paradigms',zone:'governance',detail:'Reconsider what success means and the assumptions governing it.'}
 ];
 ---
-<div class="system-map" data-system-map aria-label="System Canvas spatial model">
+<div class="system-map" data-system-map data-sc-config={JSON.stringify({lenses,leverage})} aria-label="System Canvas spatial model">
   <header class="map-top">
     <div><strong>System Canvas / Spatial model</strong><small>Illustrative system · Not a causal proof</small></div>
     <label class="leverage-toggle"><input data-leverage-toggle type="checkbox"/> Show intervention levers</label>
@@ -37,28 +37,7 @@ const leverage=[
   </div>
   <p class="diagram-caveat">Arrows denote a useful interpretation of dependencies and regulation. They do not assert that every resource is a stock, that every relationship is causal, or that every organization follows one universal configuration.</p>
 </div>
-<script define:vars={{lenses,leverage}}>
-  document.querySelectorAll('[data-system-map]').forEach(root=>{
-    const setLens=id=>{
-      const v=lenses.find(v=>v.id===id)||lenses[0];root.dataset.focus=v.focus;
-      root.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===id)));
-      root.querySelector('[data-lens-title]').textContent=v.title;
-      root.querySelector('[data-lens-note]').textContent=v.note;
-    };
-    root.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setLens(b.dataset.view)));
-    root.querySelector('[data-leverage-toggle]').addEventListener('change',e=>{
-      root.querySelector('[data-leverage-panel]').hidden=!e.target.checked;
-      if(!e.target.checked)root.dataset.leverage='';
-    });
-    root.querySelectorAll('[data-leverage]').forEach(b=>b.addEventListener('click',()=>{
-      const v=leverage.find(v=>v.id===b.dataset.leverage);
-      root.dataset.leverage=v.zone;
-      root.querySelectorAll('[data-leverage]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
-      root.querySelector('[data-leverage-description]').textContent=v.detail;
-    }));
-    setLens('overview');
-  });
-</script>
+
 <style is:global>
 .system-map{border:1px solid var(--color-border,#536960);background:var(--color-surface,#152521);color:var(--color-text,#e9f2ee);border-radius:14px;padding:clamp(12px,2.3vw,24px);margin:24px 0}.system-map *{box-sizing:border-box}.map-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.map-top strong{font-size:15px;display:block}.map-top small{font-size:11px;opacity:.75;display:block;margin-top:4px}.leverage-toggle{display:flex;gap:7px;align-items:center;font-size:12px;cursor:pointer}.leverage-toggle input{accent-color:#64b89f}.view-tabs{display:flex;flex-wrap:wrap;gap:5px;margin:17px 0}.view-tabs button,.leverage-buttons button{color:inherit;background:transparent;border:1px solid #69827a;border-radius:6px;padding:8px 10px;font-size:12px;cursor:pointer}.view-tabs button[aria-pressed=true],.leverage-buttons button[aria-pressed=true]{background:#286453;color:white;border-color:#8ee6c4;box-shadow:inset 0 0 0 1px #8ee6c4}.system-map button:focus-visible{outline:2px solid #87ddbd;outline-offset:2px}.diagram-container{overflow-x:auto}.canvas-svg{display:block;min-width:680px;width:100%;height:auto;overflow:visible}.canvas-svg text{paint-order:normal}.zone{transition:opacity .15s}.zone-fill{stroke:#709188;stroke-width:1.5;fill:#6b948a;fill-opacity:.10}.zone-fill.operation{fill:#4fbda1;fill-opacity:.16;stroke:#64b89f}.zone-fill.gov{fill:#849bc6;fill-opacity:.13;stroke:#8197bb}.zone-fill.eval{fill:#c09b65;fill-opacity:.11;stroke:#b29a77}.eyebrow{fill:currentColor;font-size:10px;opacity:.74;letter-spacing:1px;font-weight:700}.zone-title{fill:currentColor;font-size:19px;font-weight:700;letter-spacing:-.3px}.zone-subtitle{fill:currentColor;font-size:12px;opacity:.85}.boundary-text{fill:currentColor;font-size:10px;opacity:.6;letter-spacing:1px}.edge{transition:opacity .15s}.edge path{fill:none;stroke-width:3}.edge .primary{stroke:#64b89f}.edge .secondary{stroke:#9aabc5;stroke-dasharray:5 5}.edge-text{fill:currentColor;font-size:12px;opacity:.75}.feedback-path{stroke-width:2}.feedback-label{fill:#253b3b;stroke:#69827a}.feedback-text{fill:#e6f5ee;font-size:13px;font-weight:650}.revision-path{opacity:0}.map-insight{padding:14px 16px;border:1px solid #69827a;border-radius:9px;margin-top:7px}.map-insight strong{font-size:14px}.map-insight p{font-size:13px;line-height:1.6;margin:5px 0}.leverage-panel{margin-top:14px;padding:13px;border:1px solid #69827a;border-radius:9px}.leverage-panel[hidden]{display:none}.leverage-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}.leverage-head strong{font-size:13px}.leverage-head span{opacity:.7;font-size:11px}.leverage-buttons{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}.leverage-description{font-size:12px;margin:0;line-height:1.5}.diagram-caveat{font-size:11px;opacity:.7;line-height:1.5;margin:12px 0 0}
 

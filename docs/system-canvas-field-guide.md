@@ -2,6 +2,41 @@
 
 **Provisional method, not yet validated**
 
+## Read the system spatially
+
+Use the [interactive spatial diagram](/canvas/) as an **orientation before completing the worksheet**.
+
+```mermaid
+flowchart TB
+  G["ABOVE: Purpose · Rules · Authority"]
+  C["LEFT: Capacity · Actors · Resources"]
+  O["CENTER: Operations · Processes · Flow"]
+  R["RIGHT: Outcomes · Recipients · Effects"]
+  V["BELOW: Evaluation · Viability · Refinement"]
+  C --> O --> R
+  G -. "Directs / constrains" .-> O
+  R --> V
+  R -. "Observe and respond" .-> C
+  V -. "Revise goals or rules" .-> G
+```
+
+The arrows are **questions about relationships**, not claims that particular flows or feedback are already verified. Ask where resources accumulate; where they move; what delays intervene; how participants learn of outcomes; who may adjust rules; and whose viability is affected.
+
+### When to reveal another diagram
+
+| If the overview cannot explain... | Reveal... | Check before trusting it |
+|---|---|---|
+| A resource shortage or bottleneck | Stock/flow, throughput and delay diagram | Units, rates, inventories, delays |
+| A persistent pattern or adaptation | Causal-loop or state-transition view | Rival mechanisms and empirical evidence |
+| Disputed observation or misinformation | Evidence/provenance map | Sources, corrections, unknowns |
+| Inability to change a rule | Institutional authority / IAD action-situation view | Actual rule enforcement and appeal access |
+| Conflicting ends | Goal-tension / 4EM view | Distinguish declared goals from incentivized behavior |
+| Undesirable side effects | Outcome and impact evaluation view | Counterfactual, affected parties and time horizon |
+
+**Leverage overlay:** when selecting a possible intervention, check stocks and buffers, rates and delays, feedback loops, information flows, rules, and goals. The type of lever does not prove its effect. Record responsible authority, baseline, expected mechanism, side effects and revision criteria.
+
+
+
 ## The default canvas: minimum viable diagnosis
 
 **Start here before choosing any theoretical lens.** The canvas is a discussion and decision aid, not a complete organizational map.

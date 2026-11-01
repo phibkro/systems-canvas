@@ -1,10 +1,14 @@
 ---
 import DocsLayout from '../layouts/DocsLayout.astro';
-const pages = {
-  ...import.meta.glob('../../docs/*.md', { eager: true }),
-  ...import.meta.glob('../../research/*.md', { eager: true })
-};
+
 export function getStaticPaths() {
+  // Astro executes getStaticPaths in an isolated build scope.
+  // Keep the import glob inside the function rather than referencing
+  // a module-level variable.
+  const pages = {
+    ...import.meta.glob('../../docs/*.md', { eager: true }),
+    ...import.meta.glob('../../research/*.md', { eager: true })
+  };
   return Object.entries(pages).map(([path, doc]) => {
     const section = path.includes('/research/') ? 'research' : 'docs';
     const name = path.split('/').pop().replace(/\.md$/, '');
@@ -13,6 +17,6 @@ export function getStaticPaths() {
 }
 const { doc, name } = Astro.props;
 const Content = doc.Content;
-const title = (doc.frontmatter?.title || name.replace(/^system-canvas-/,'').replace(/-/g,' '));
+const title = doc.frontmatter?.title || name.replace(/^system-canvas-/,'').replace(/-/g,' ');
 ---
 <DocsLayout title={title}><Content /></DocsLayout>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1020" role="img" aria-labelledby="practitioner-title practitioner-desc" class="canvas-svg">
+<title id="practitioner-title">System Canvas — vertical practitioner model</title>
+<desc id="practitioner-desc">A vertical operating thread moves from capacity to operations to outcomes. Observation and feedback on the left receive outcome signals and inform operations. Purpose and governance on the right guide capacity and operations. Outcomes flow to evaluation and learning at the bottom, which can revise governance and capacities.</desc>
+<defs>
+<linearGradient id="p-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#09191d"/><stop offset="1" stop-color="#102a2c"/></linearGradient>
+<marker id="p-mint" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#78ddba" stroke-width="2"/></marker>
+<marker id="p-sky" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#a2c7f8" stroke-width="2"/></marker>
+<marker id="p-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#ecd18c" stroke-width="2"/></marker>
+<marker id="p-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#d4b2f3" stroke-width="2"/></marker>
+<style>
+text{font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif}.p-heading{font-size:30px;font-weight:750;fill:#f5faf8}.p-sub{font-size:15px;fill:#b4cbc7}.p-kicker{font-size:12px;letter-spacing:1.8px;fill:#8fb6af}.p-tag{font-size:13px;letter-spacing:1.1px;font-weight:700}.p-title{font-size:27px;fill:#f9fffd;font-weight:750}.p-description{font-size:16px;fill:#d0dfdd}.p-arrow{fill:none;stroke-width:3.2;stroke-linejoin:round;stroke-linecap:round}.p-label{font-size:14px;fill:#cbdcd8}.p-card{stroke-width:2}.zone{transition:opacity .2s}.p-arrow-group{transition:opacity .2s} 
+</style>
+</defs>
+<rect width="1200" height="1020" rx="22" fill="url(#p-bg)"/>
+<text x="50" y="62" class="p-heading">System Canvas · Practitioner view</text>
+<text x="50" y="93" class="p-sub">The operating thread and the loops that govern, observe, and revise it</text>
+<path d="M48 119H1152" stroke="#3c6664"/>
+<rect x="28" y="143" width="1144" height="828" rx="24" fill="none" stroke="#416c6b" stroke-width="1.6"/>
+<text x="52" y="172" class="p-kicker">SYSTEM BOUNDARY · SELECTIVE &amp; REVISABLE</text>
+
+<!-- feedback and control edges, behind cards -->
+<g data-edge="material" class="p-arrow-group">
+<path class="p-arrow" d="M600 360V427" stroke="#78ddba" marker-end="url(#p-mint)"/>
+<path class="p-arrow" d="M600 575V643" stroke="#78ddba" marker-end="url(#p-mint)"/>
+<text x="619" y="396" class="p-label">enables</text><text x="619" y="611" class="p-label">transforms</text>
+</g>
+<g data-edge="feedback" class="p-arrow-group">
+<path class="p-arrow" d="M432 715H355 Q322 715 322 681V565" stroke="#a2c7f8" marker-end="url(#p-sky)"/>
+<path class="p-arrow" d="M364 497H429" stroke="#d4b2f3" stroke-dasharray="6 8" marker-end="url(#p-violet)"/>
+<text x="308" y="694" class="p-label" text-anchor="end">signals</text>
+<text x="397" y="483" class="p-label" text-anchor="middle">informs</text>
+</g>
+<g data-edge="governance" class="p-arrow-group">
+<path class="p-arrow" d="M835 498H772" stroke="#ecd18c" marker-end="url(#p-gold)"/>
+<path class="p-arrow" d="M973 427V277H768" stroke="#ecd18c" marker-end="url(#p-gold)"/>
+<text x="802" y="480" class="p-label" text-anchor="middle">guides</text>
+</g>
+<g data-edge="evaluation" class="p-arrow-group">
+<path class="p-arrow" d="M600 791V833" stroke="#a2c7f8" marker-end="url(#p-sky)"/>
+<path class="p-arrow" d="M778 901H1105V498H1117" stroke="#d4b2f3" stroke-dasharray="7 8" marker-end="url(#p-violet)"/>
+<path class="p-arrow" d="M426 902H92V275H431" stroke="#d4b2f3" stroke-dasharray="7 8" marker-end="url(#p-violet)"/>
+<text x="786" y="884" class="p-label">revise rules</text><text x="104" y="887" class="p-label">adapt capacity</text>
+</g>
+<!-- primary cards -->
+<g data-zone="capacity" class="zone"><rect class="p-card" x="432" y="222" width="336" height="138" rx="16" fill="#163e36" stroke="#77dfbb"/><text x="455" y="250" class="p-tag" fill="#a2f0d4">INPUTS &amp; CAPABILITIES</text><text x="455" y="294" class="p-title">Capacity</text><text x="455" y="325" class="p-description">People · resources · dependencies</text></g>
+<g data-zone="operation" class="zone"><rect class="p-card" x="432" y="427" width="336" height="148" rx="16" fill="#193a4c" stroke="#8bcce6"/><text x="455" y="457" class="p-tag" fill="#abe4f5">TRANSFORMATION</text><text x="455" y="503" class="p-title">Operations</text><text x="455" y="535" class="p-description">Activities · decisions · flows</text></g>
+<g data-zone="outcomes" class="zone"><rect class="p-card" x="432" y="643" width="336" height="148" rx="16" fill="#27334d" stroke="#b1bafc"/><text x="455" y="675" class="p-tag" fill="#c6ccff">EFFECTS &amp; RECIPIENTS</text><text x="455" y="718" class="p-title">Outcomes</text><text x="455" y="750" class="p-description">Benefits · harms · externalities</text></g>
+<g data-zone="feedback" class="zone"><rect class="p-card" x="55" y="427" width="309" height="138" rx="16" fill="#312940" stroke="#d4b2f3"/><text x="78" y="459" class="p-tag" fill="#e1c7fa">SENSING &amp; RESPONSE</text><text x="78" y="500" class="p-title" font-size="24">Observation &amp;</text><text x="78" y="528" class="p-title" font-size="24">Feedback</text><text x="78" y="552" class="p-description" font-size="13">Signals · evidence · monitoring</text></g>
+<g data-zone="governance" class="zone"><rect class="p-card" x="835" y="427" width="310" height="138" rx="16" fill="#383222" stroke="#e8c783"/><text x="856" y="459" class="p-tag" fill="#f8d99b">DIRECTION &amp; CONTROL</text><text x="856" y="502" class="p-title" font-size="23">Purpose &amp;</text><text x="856" y="530" class="p-title" font-size="23">Governance</text><text x="856" y="552" class="p-description" font-size="13">Goals · rules · decision rights</text></g>
+<g data-zone="evaluation" class="zone"><rect class="p-card" x="426" y="834" width="352" height="114" rx="16" fill="#353829" stroke="#e0cf91"/><text x="449" y="860" class="p-tag" fill="#faeab0">TEST &amp; REFINE</text><text x="449" y="899" class="p-title" font-size="24">Evaluation &amp; Learning</text><text x="449" y="927" class="p-description">Evidence · adaptation · improvement</text></g>
+</svg>

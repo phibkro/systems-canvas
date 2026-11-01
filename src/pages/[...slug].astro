@@ -1,0 +1,18 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+const pages = {
+  ...import.meta.glob('../../docs/*.md', { eager: true }),
+  ...import.meta.glob('../../research/*.md', { eager: true })
+};
+export function getStaticPaths() {
+  return Object.entries(pages).map(([path, doc]) => {
+    const section = path.includes('/research/') ? 'research' : 'docs';
+    const name = path.split('/').pop().replace(/\.md$/, '');
+    return { params: { slug: section + '/' + name }, props: { doc, name } };
+  });
+}
+const { doc, name } = Astro.props;
+const Content = doc.Content;
+const title = (doc.frontmatter?.title || name.replace(/^system-canvas-/,'').replace(/-/g,' '));
+---
+<DocsLayout title={title}><Content /></DocsLayout>

@@ -1,12 +1,13 @@
-import { initialState, reduce, assertValid } from "./system-canvas-state.mjs";
+import { initialState, reduce, assertValid, parseConfig } from "./system-canvas-state.ts";
 
 const instances=new WeakMap();
 const roots="[data-system-map], [data-prototype], .canvas-demo[data-sc-config]";
 function instance(root){
   let data=instances.get(root);
   if(data)return data;
-  const config=JSON.parse(root.getAttribute("data-sc-config")||"{}");
-  config.kind=root.matches("[data-system-map]")?"map":root.matches("[data-prototype]")?"worksheet":"case";
+  const input=JSON.parse(root.getAttribute("data-sc-config")||"{}");
+  input.kind=root.matches("[data-system-map]")?"map":root.matches("[data-prototype]")?"worksheet":"case";
+  const config=parseConfig(input);
   data={config,state:initialState(config)};
   instances.set(root,data);
   return data;

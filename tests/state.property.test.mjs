@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import fc from "fast-check";
-import { initialState, reduce, assertValid } from "../site/system-canvas-state.ts";
+import { initialState, reduce, assertValid, parseConfig } from "../site/system-canvas-state.ts";
 
 const configs = {
   map:{kind:"map", lenses:[{id:"overview"},{id:"authority"},{id:"behavior"}], leverage:[{id:"rules"},{id:"feedback"}]},
@@ -159,5 +159,41 @@ describe("invalid states must be rejected",()=>{
       notice:"Example loaded. Work stays in this browser tab; export JSON to keep it."
     });
     expect(()=>initialState({kind:"invalid"})).toThrow(TypeError);
+  });
+});
+
+describe("Valibot configuration and persistence boundary",()=>{
+  it("rejects malformed configs before building state",()=>{
+    for(const bad of [
+      null, {}, {kind:"map",lenses:[],leverage:[]},
+      {kind:"map",lenses:[{id:"a"},{id:"a"}],leverage:[]},
+      {kind:"map",lenses:[{id:"a"}],leverage:[{id:"x"},{id:"x"}]},
+      {kind:"case",views:[],changes:[{}]},
+      {kind:"case",views:[{}],changes:[]},
+      {kind:"worksheet",lenses:[],example:{}},
+      {kind:"worksheet",lenses:[[]],example:{}},
+      {kind:"worksheet",lenses:[["Structure"]],example:{problem:45}}
+    ])expect(()=>parseConfig(bad)).toThrow();
+  });
+  it("preserves UI metadata while validating required config members",()=>{
+    const config=parseConfig({kind:"map",lenses:[{id:"overview",title:"Overview",focus:"all"}],
+      leverage:[{id:"rules",zone:"governance"}],extraInfo:"preserved"});
+    expect(config.lenses[0].title).toBe("Overview");
+    expect(config.extraInfo).toBe("preserved");
+  });
+  it("accepts JSON round-tripped legal states, rejects fabricated ones",()=>{
+    for(const cfg of Object.values(configs)){
+      let state=initialState(cfg);
+      const actions=cfg.kind==="map"
+        ? [{type:"levers.toggle",open:true},{type:"lever.select",id:"rules"}]
+        : cfg.kind==="case"
+        ? [{type:"lens.select",index:1},{type:"intervention.select",index:1}]
+        : [{type:"answer.edit",key:"problem",value:"changed"},{type:"note.edit",value:"some evidence"}];
+      for(const action of actions)state=reduce(state,action,cfg);
+      const roundTrip=JSON.parse(JSON.stringify(state));
+      expect(assertValid(roundTrip,cfg)).toBe(true);
+      expect(roundTrip).toEqual(state);
+      expect(assertValid({...roundTrip,extraneousField:true},cfg)).toBe(false);
+    }
   });
 });

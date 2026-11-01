@@ -23,17 +23,25 @@ jobs:
           d2 --layout=dagre experiments/visual-grammar/six-aspect-grid.d2 experiments/visual-grammar/six-aspect-grid.svg
           d2 --layout=dagre experiments/visual-grammar/practitioner-grid.d2 experiments/visual-grammar/practitioner-grid.svg
           ls -lh experiments/visual-grammar/*.svg
+      - name: Rasterize previews
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq librsvg2-bin
+          rsvg-convert -w 1200 experiments/visual-grammar/six-aspect-grid.svg -o experiments/visual-grammar/six-aspect-grid.png
+          rsvg-convert -w 1200 experiments/visual-grammar/practitioner-grid.svg -o experiments/visual-grammar/practitioner-grid.png
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: d2-grid-renderings
-          path: experiments/visual-grammar/*.svg
+          path: |
+            experiments/visual-grammar/*.svg
+            experiments/visual-grammar/*.png
           if-no-files-found: warn
       - name: Commit generated SVGs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add experiments/visual-grammar/*.svg
+          git add experiments/visual-grammar/*.svg experiments/visual-grammar/*.png
           if ! git diff --cached --quiet; then
             git commit -m "test(diagrams): render D2 grid comparisons"
             git push

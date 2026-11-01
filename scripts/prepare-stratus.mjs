@@ -32,6 +32,15 @@ for(const [input,title,group,order] of entries){
 write(path.join(target,'src/components/custom/CaseExplorer.astro'),fs.readFileSync(path.join(root,'site/CaseExplorer.astro'),'utf8'));
 write(path.join(target,'src/components/custom/DiagnosticCanvas.astro'),fs.readFileSync(path.join(root,'site/DiagnosticCanvas.astro'),'utf8'));
 write(path.join(target,'src/components/custom/SystemSpatialModel.astro'),fs.readFileSync(path.join(root,'site/SystemSpatialModel.astro'),'utf8'));
+for(const [src,name] of [
+ ['site/assets/practitioner-vertical.svg','practitioner-vertical.svg'],
+ ['site/assets/six-aspect.svg','six-aspect.svg']
+]){
+ const asset=fs.readFileSync(path.join(root,src),'utf8');
+ write(path.join(target,'public/diagrams',name),asset);
+ if(name==='practitioner-vertical.svg')write(path.join(target,'src/components/custom/assets',name),asset);
+}
+
 write(path.join(docsDir,'canvas/index.mdx'),[
  '---',
  'title: "Diagnostic canvas prototype"',

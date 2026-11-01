@@ -1,6 +1,6 @@
 export default {
   testRunner: "vitest",
-  mutate: ["site/system-canvas-state.mjs"],
+  mutate: ["site/system-canvas-state.ts"],
   reporters: ["clear-text", "progress", "html"],
   coverageAnalysis: "off",
   concurrency: 2,

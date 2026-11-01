@@ -7,6 +7,10 @@ const modify=(file,fn)=>write(file,fn(fs.readFileSync(file,'utf8')));
 const json=(file,fn)=>modify(file,src=>JSON.stringify(fn(JSON.parse(src)),null,2)+'\n');
 fs.rmSync(docsDir,{recursive:true,force:true});
 const entries=[
+ ['docs/enterprise-agency-modeling.md','Enterprise & Agency Modeling','Model',10],
+ ['docs/enterprise-model.md','Enterprise Model','Model',20],
+ ['docs/game-model.md','Game Model','Model',30],
+ ['docs/human-viable-systems.md','Human Viable Systems','Research',5],
  ['docs/system-canvas-core.md','Core thesis','Foundations',10],
  ['docs/system-canvas-course.md','Learning course','Learn',10],
  ['docs/system-canvas-field-guide.md','Practitioner field guide','Learn',20],
@@ -53,15 +57,15 @@ for(const [src,name] of [
 
 write(path.join(docsDir,'canvas/index.mdx'),[
  '---',
- 'title: "Diagnostic canvas prototype"',
- 'description: "A problem-led, editable one-page worksheet with selective deeper analytical views."',
+ 'title: "Enterprise Canvas · Interactive prototype"',
+ 'description: "Explore enterprise organization, behavior, governance and outcomes through an interactive diagnostic canvas."',
  'group: "Explore"',
  'order: 1',
  '---','',
  "import DiagnosticCanvas from '../../../components/custom/DiagnosticCanvas.astro';",
  "import SystemSpatialModel from '../../../components/custom/SystemSpatialModel.astro';",'',
- '# Start with a problem, not a theory','',
- 'This **experimental prototype** translates the practitioner field guide into a single worksheet. Fill six simple prompts, open a deeper view only when necessary, and export your work. It does **not** store your content on a server. Edits remain in the current browser tab until exported.','',
+ '# Enterprise Canvas · Start with a concrete problem','',
+ '**Enterprise Canvas** is the practitioner interface to [Enterprise & Agency Modeling](/docs/enterprise-agency-modeling/). This is currently an interactive **Enterprise Model** overview; a dedicated Game Canvas is proposed but not yet implemented. The linked [Human Viable Systems](/docs/human-viable-systems/) research program offers optional, explicit normative evaluation criteria. This **experimental prototype** translates the practitioner field guide into a single worksheet. Fill six simple prompts, open a deeper view only when necessary, and export your work. It does **not** store your content on a server. Edits remain in the current browser tab until exported.','',
  '<SystemSpatialModel />','',
  '## Fill out the diagnosis','',
  '<DiagnosticCanvas />','',
@@ -76,45 +80,45 @@ write(path.join(docsDir,'cases/journalism.mdx'),[
  'description: "Explore the same system through six analytical lenses."',
  'group: "Explore"','order: 10','---','',
  "import CaseExplorer from '../../../components/custom/CaseExplorer.astro';",'',
- '# One system, six analytical views','',
- 'A teaching scenario about journalists, distribution platforms and audiences. The relationships are **illustrative**, not established claims about a particular platform.','',
+ '# One enterprise, six analytical views','',
+ 'A teaching scenario about journalists, distribution platforms and audiences. Use [Enterprise Models](/docs/enterprise-model/) to map operations and [Game Models](/docs/game-model/) to examine decisions and incentives. The relationships are **illustrative**, not established claims about a particular platform.','',
  '## Explore the case','',
  '<CaseExplorer />','',
  '## What changes with the lens?','',
  'The actors remain, but the questions, evidence needs, rules, goals and outcomes change. A system diagnosis becomes useful when perspectives are connected to falsifiable intervention hypotheses.','',
  'See the [field guide](/docs/system-canvas-field-guide/) and [validation protocol](/research/system-canvas-validation-protocol/).',''
 ].join('\n'));
-json(path.join(target,'src/data/header.json'),x=>({...x,logoAlt:'System Canvas',showVersionNumber:false,topbarLinks:[{name:'GitHub',path:'https://github.com/phibkro/systems-canvas'}]}));
-json(path.join(target,'src/data/footer.json'),x=>({...x,links:[{name:'Course',path:'/docs/system-canvas-course/'},{name:'Research',path:'/research/system-canvas-research-thesis/'},{name:'Source',path:'https://github.com/phibkro/systems-canvas'}],socials:[{icon:'social/github',link:'https://github.com/phibkro/systems-canvas'}],footerText:'System Canvas · An open, provisional research program.'}));
-json(path.join(target,'src/data/seo.json'),x=>({...x,siteName:'System Canvas',url:'https://systems-canvas.phibkro.org',description:'An open framework for understanding, diagnosing, and redesigning complex systems.',titleFormat:'{title} | System Canvas'}));
-json(path.join(target,'src/data/sidebar.json'),x=>({...x,homeLabel:'Overview',navGroups:[{name:'Explore',collapsed:false},{name:'Learn',collapsed:false},{name:'Foundations',collapsed:false},{name:'Research',collapsed:false}]}));
+json(path.join(target,'src/data/header.json'),x=>({...x,logoAlt:'Enterprise Canvas',showVersionNumber:false,topbarLinks:[{name:'GitHub',path:'https://github.com/phibkro/systems-canvas'}]}));
+json(path.join(target,'src/data/footer.json'),x=>({...x,links:[{name:'Framework',path:'/docs/enterprise-agency-modeling/'},{name:'Enterprise Model',path:'/docs/enterprise-model/'},{name:'Game Model',path:'/docs/game-model/'},{name:'Human Viable Systems',path:'/docs/human-viable-systems/'},{name:'Source',path:'https://github.com/phibkro/systems-canvas'}],socials:[{icon:'social/github',link:'https://github.com/phibkro/systems-canvas'}],footerText:'Enterprise Canvas · Enterprise & Agency Modeling · Human Viable Systems research.'}));
+json(path.join(target,'src/data/seo.json'),x=>({...x,siteName:'Enterprise Canvas',url:'https://systems-canvas.phibkro.org',description:'Enterprise and game models for explaining how human and AI agents organize, interact and produce outcomes.',titleFormat:'{title} | System Canvas'}));
+json(path.join(target,'src/data/sidebar.json'),x=>({...x,homeLabel:'Overview',navGroups:[{name:'Model',collapsed:false},{name:'Explore',collapsed:false},{name:'Learn',collapsed:false},{name:'Foundations',collapsed:false},{name:'Research',collapsed:false}]}));
 json(path.join(target,'src/data/announcementBar.json'),x=>({...x,enabled:false}));
 json(path.join(target,'src/data/pageTools.json'),x=>({...x,repositoryUrl:'https://github.com/phibkro/systems-canvas/tree/main',feedback:{...x.feedback,enabled:false}}));
 json(path.join(target,'src/data/theme.json'),x=>({...x,defaultTheme:'dark',theme:{...x.theme,accentLight:'#0f766e',accentDark:'#8be0c0'}}));
 modify(path.join(target,'astro.config.mjs'),x=>x.replace('https://glamorous-boar.cloudvent.net','https://systems-canvas.phibkro.org'));
 write(path.join(target,'src/content/pages/index.md'),[
- '---','title: "System Canvas"',
- 'description: "An open research, teaching and practice method for systems diagnosis and redesign."',
+ '---','title: "Enterprise Canvas · Enterprise & Agency Modeling"',
+ 'description: "Enterprise and game models for understanding how human and AI agents organize, interact and produce outcomes."',
  'pageSections:',
  '  - _component: page-sections/heroes/hero-center',
- '    sectionLabel: Introduction',
- '    eyebrow: Open research · Method under development',
+ '    sectionLabel: Enterprise & Agency Modeling',
+ '    eyebrow: Enterprise Canvas · Part of Human Viable Systems research',
  '    eyebrowShowDot: true',
- '    heading: "Understand systems. <span class=\\"highlight\\">Redesign mechanisms.</span>"',
+ '    heading: "Understand enterprises. <span class=\\"highlight\\">Explain behavior.</span>"',
  '    headingLevel: h1',
- '    subtext: "A teachable framework for explaining persistent outcomes and designing testable interventions."',
+ '    subtext: "Model how people, institutions and AI agents organize and interact. Combine enterprise and game models to analyze structures, incentives and outcomes, then evaluate and test possible changes."',
  '    alignmentHorizontal: start',
  '    buttonSections:',
  '      - _component: building-blocks/core-elements/button',
- '        text: Try the diagnostic canvas',
+ '        text: Explore Enterprise Canvas',
  '        link: /canvas/',
  '        variant: primary',
  '        size: md',
  '        iconName: arrow-right',
  '        iconPosition: after',
  '      - _component: building-blocks/core-elements/button',
- '        text: Start the course',
- '        link: /docs/system-canvas-course/',
+ '        text: Discover the models',
+ '        link: /docs/enterprise-agency-modeling/',
  '        variant: secondary',
  '        size: md',
  '    maxContentWidth: 2xl',
@@ -125,6 +129,6 @@ write(path.join(target,'src/content/pages/index.md'),[
  '    backgroundColor: base',
  '---',''
 ].join('\n'));
-const logo='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48"><path d="M9 24 24 9 39 24 24 39Z" stroke="#7bd9b8" stroke-width="3" fill="none"/><circle cx="24" cy="24" r="5" fill="#7bd9b8"/><text x="51" y="31" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#7bd9b8">System Canvas</text></svg>';
+const logo='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48"><path d="M9 24 24 9 39 24 24 39Z" stroke="#7bd9b8" stroke-width="3" fill="none"/><circle cx="24" cy="24" r="5" fill="#7bd9b8"/><text x="51" y="31" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#7bd9b8">Enterprise Canvas</text></svg>';
 for(const f of ['logo-light.svg','logo-dark.svg'])write(path.join(target,'src/assets/images/logo',f),logo);
 console.log('Overlay prepared: '+entries.length+' documents, 1 interactive case.');

@@ -2,6 +2,38 @@
 
 **Living hypotheses; no claim of validation**
 
+## Reprioritized research register — accessibility and use
+
+| Priority | Hypothesis / design commitment | Evidence required |
+|---|---|---|
+| **P0** | A practitioner can start with one problem and a minimal canvas without learning the six lenses first | Unassisted task study and error observation |
+| **P0** | Progressive disclosure reduces learning cost **without lowering diagnostic validity** | Controlled comparison, quality scoring, time/workload |
+| **P0** | Visual accessibility must mean *correct application*, not attractive diagrams alone | Misleading-simplification tests, confidence calibration |
+| **P1** | A stable actor model supports coherent movement between analytical viewpoints | Cross-view comprehension and tracing tasks |
+| **P1** | Evidence tags and rival-hypothesis prompts reduce causal storytelling | Unsupported-mechanism rate and calibration |
+| **P1** | The procedure can reuse existing IAD, VSM/ECM, 4EM and EA constructs without becoming a rebranded duplicate | Expert prior-art crosswalk and counterexamples |
+| **P2** | Second-order regulator checks and overlapping-game models add diagnostic value when genuinely relevant | Targeted comparative cases |
+| **P2** | Biological analogies assist understanding without misleading mechanistic inference | Concept-transfer interviews and errors |
+
+### Product and methodological decisions
+
+- The **four user-facing capabilities** are **analyze, diagnose, evaluate, refine**.
+- The **five moves** (frame, map, explain, redesign, test/adapt) remain a suggested facilitation path, not mandatory stages.
+- The **six lenses** are selectable analytical views, not six required worksheets.
+- **Start simple; disclose complexity when it affects a decision.** Do not imply that a simpler representation has made the real system simple.
+- C4, Business Model Canvas, 4EM and ArchiMate are usability and viewpoint precedents; IAD, VSM, ECM and other systemic theories provide substantive analytical prior art.
+- Explicitly distinguish **System Canvas methodology** from **Human Viable Systems Model normative evaluation**.
+
+### Immediate research tasks
+
+1. Produce a matrix comparing current System Canvas prompts with actual IAD, VSM, Espejo ECM, 4EM and enterprise-architecture procedures.
+2. Prototype one case at three levels: one-minute orientation, minimum working diagnosis, optional focused theory-backed views.
+3. Recruit at least one practitioner unfamiliar with systems theory and one relevant domain expert to identify different failure modes.
+4. Test whether independent practitioners notice missing evidence and choose appropriate escalation.
+5. Establish prespecified success/failure thresholds before broad claims of improved accessibility.
+
+
+
 ## High-potential ideas
 
 | Priority | Idea | Next maturity step |

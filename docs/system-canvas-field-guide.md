@@ -6,42 +6,9 @@
 
 Use the [interactive spatial diagram](/canvas/) as an **orientation before completing the worksheet**.
 
-```mermaid
-block
-  columns 3
-  space
-  G["PURPOSE & GOVERNANCE<br/>What directs the system?"]
-  space
-  C["CAPACITY<br/>People · resources · dependencies"]
-  O["OPERATIONS<br/>Activities · decisions · flows"]
-  R["OUTCOMES<br/>Recipients · benefits · harms"]
-  space
-  F["OBSERVATION & FEEDBACK<br/>What signals return?"]
-  space
-  space
-  V["EVALUATION & REFINEMENT<br/>What persists, fails, or changes?"]
-  space
+![Vertical practitioner canvas: capacity enables operations, operations create outcomes, feedback and governance flank the central process, and evaluation revises the system.](/diagrams/practitioner-vertical.svg)
 
-  C --> O
-  O --> R
-  G -.-> O
-  R -.-> F
-  F -.-> O
-  R --> V
-
-  classDef capacity fill:#143c36,stroke:#67c1a6,color:#e9faf4
-  classDef operation fill:#183e54,stroke:#79bfe5,color:#eef8fd
-  classDef outcomes fill:#313450,stroke:#aeb6fa,color:#f5f4ff
-  classDef governance fill:#423820,stroke:#e3c276,color:#fff6df
-  classDef feedback fill:#302a49,stroke:#ad9bea,color:#f6f1ff
-  classDef evaluation fill:#353624,stroke:#d0bd7e,color:#fcf8eb
-  class C capacity
-  class O operation
-  class R outcomes
-  class G governance
-  class F feedback
-  class V evaluation
-```
+[Open full-size vertical practitioner SVG](/diagrams/practitioner-vertical.svg)
 
 The arrows are **questions about relationships**, not claims that particular flows or feedback are already verified. Ask where resources accumulate; where they move; what delays intervene; how participants learn of outcomes; who may adjust rules; and whose viability is affected.
 

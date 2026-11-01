@@ -1,8 +1,48 @@
 # System Canvas — Research Thesis
 
+## Revised primary research claim: accessible application, not broader theory
+
+**Primary hypothesis:** a problem-first, progressively disclosed procedure can help practitioners with limited specialist training **apply relevant insights from organizational cybernetics, IAD, 4EM and enterprise architecture** with less cognitive burden, while preserving or improving the quality of their diagnosis and proposed intervention.
+
+This is a claim about **method design, human–computer interaction, education and organizational practice**. It is not a claim that VSM, IAD, or Espejo's Enterprise Complexity Model are erroneous or merely formal, or that no earlier approachable method exists.
+
+### Outcome hierarchy
+
+1. **Necessary condition — valid application:** users distinguish evidence from assumption, identify supported mechanisms, and select interventions with defensible causal links. No accessibility advantage justifies degrading this baseline.
+2. **Primary advantage — reduced learning/application cost:** novices achieve acceptable quality with shorter instruction, fewer unnecessary views, less time and manageable cognitive workload.
+3. **Additional advantage — communication and transfer:** varied stakeholders can interpret the same selective model and transfer the procedure to unfamiliar domains.
+4. **Exploratory advantage — deeper diagnosis:** optional reflexive and compositional views may expose material mechanisms otherwise overlooked.
+
+### Candidate design mechanisms
+
+- **Progressive disclosure** limits simultaneous concepts; details appear when needed for a concrete decision.
+- **Problem-led prompts** connect abstract concepts to recognizable organizational failure modes.
+- **Linked viewpoints** maintain the same system elements while switching among structural, behavioral, epistemic, deontic, teleological and evaluative questions.
+- **Evidence and counterexample prompts** limit plausible but unsupported stories.
+- **Traceability to established theory** permits deepening and expert review without requiring it at entry.
+
+These are *candidate explanatory mechanisms* for the intervention and require literature review and empirical tests.
+
+### Theoretical positioning
+
+- **IAD**: institutional action situations, rules and nested rule-making are already practical diagnostic resources.
+- **VSM and Espejo ECM / cybernetic methodologies**: organizational viability, recursive coordination and observer-aware diagnosis are prior art. Compare their *actual procedures and pedagogies*, not only visual complexity.
+- **4EM/EKD, ArchiMate**: existing goal, process, actor, rule and architectural viewpoints, including practitioner usability, should be treated as strong comparators.
+- **C4 and Business Model Canvas**: examples of audience-oriented views, bounded canvases, abstraction levels and workshop usability; borrow interaction principles, not unsupported claims of causal adequacy.
+- **Category theory and open games**: optional formal semantics for composition and strategic interfaces; formal precision does not guarantee empirical truth.
+- **Biology and ecology**: concrete analogical resources for homeostasis, autopoiesis, allopoiesis and interdependence; distinguish analogies from established organizational mechanisms.
+
+**Separation:** System Canvas supplies diagnostic and intervention procedures; the related Human Viable Systems Model may provide explicitly normative evaluation criteria. Organizational viability and social desirability are not synonymous.
+
+### Main risk
+
+Simpler pictures may increase confidence while hiding power, ambiguity, competing goals or causal uncertainty. The critical test is therefore **correctness and independent application**, not preference, completion or perceived clarity alone.
+
+
+
 ## Proposed claim
 
-A structured, reflexive six-lens diagnostic method **may** improve the accuracy, coverage and usefulness of mechanism identification and intervention proposals compared with credible existing approaches. Its value has not yet been demonstrated.
+A problem-led, progressively disclosed diagnostic method **may** reduce the cost of learning and applying established organizational and institutional theories **without compromising** mechanism identification or intervention quality, compared with credible existing approaches. Its value has not yet been demonstrated.
 
 ## Hypotheses
 

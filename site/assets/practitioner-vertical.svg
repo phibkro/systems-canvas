@@ -37,7 +37,7 @@ text{font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif}.p-heading{font-
 </g>
 <g data-edge="evaluation" class="p-arrow-group">
 <path class="p-arrow" d="M600 791V833" stroke="#a2c7f8" marker-end="url(#p-sky)"/>
-<path class="p-arrow" d="M778 901H1105V498H1117" stroke="#d4b2f3" stroke-dasharray="7 8" marker-end="url(#p-violet)"/>
+<path class="p-arrow" d="M778 901H1160V498H1147" stroke="#d4b2f3" stroke-dasharray="7 8" marker-end="url(#p-violet)"/>
 <path class="p-arrow" d="M426 902H92V275H431" stroke="#d4b2f3" stroke-dasharray="7 8" marker-end="url(#p-violet)"/>
 <text x="786" y="884" class="p-label">revise rules</text><text x="104" y="887" class="p-label">adapt capacity</text>
 </g>

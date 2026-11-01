@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "site/system-canvas-state.mjs"
+      - "site/system-canvas-state.ts"
       - "site/system-canvas-interactions.js"
       - "tests/**"
       - "package.json"

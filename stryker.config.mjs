@@ -7,5 +7,4 @@ export default {
   thresholds: { high: 85, low: 65, break: 0 },
   vitest: { related: true },
   tempDirName: ".stryker-tmp",
-  ignoreStatic: true
 };

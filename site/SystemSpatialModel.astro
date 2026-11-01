@@ -1,4 +1,5 @@
 ---
+import practitionerSvg from './assets/practitioner-vertical.svg?raw';
 const lenses=[
  {id:'overview',name:'Overview',title:'One system, connected relationships',focus:'all',note:'Resources enable operations; operations produce outcomes. Rules guide decisions, and observations can change future behavior.'},
  {id:'structure',name:'Structure',title:'Where are capacity and dependencies?',focus:'structure',note:'Stocks and links support activity; resources may be depleted, regenerated, or shared across boundaries.'},
@@ -25,75 +26,7 @@ const leverage=[
   <div class="view-tabs" role="group" aria-label="Analytical view">
     {lenses.map((v,i)=><button type="button" data-view={v.id} aria-pressed={i===0?'true':'false'}>{v.name}</button>)}
   </div>
-  <div class="diagram-container">
-   <svg class="canvas-svg" viewBox="0 0 900 650" role="img" aria-labelledby="diagram-title diagram-desc">
-    <title id="diagram-title">A system of capacity, operations, outcomes, governance, feedback and evaluation</title>
-    <desc id="diagram-desc">A system boundary contains governance on top, capacities on the left, operations in the middle, outcomes on the right, feedback looping back, and evaluation below. Arrows convey different hypothesized relationships, not automatically causal findings.</desc>
-    <defs>
-      <marker id="sc-arrow-primary" viewBox="0 0 10 10" marker-width="7" marker-height="7" refX="9" refY="5" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#64b89f" stroke-width="1.6"/></marker>
-      <marker id="sc-arrow-secondary" viewBox="0 0 10 10" marker-width="7" marker-height="7" refX="9" refY="5" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#9aabc5" stroke-width="1.6"/></marker>
-    </defs>
-    <rect x="10" y="20" width="880" height="605" rx="22" fill="none" stroke="currentColor" stroke-opacity=".25" stroke-dasharray="6 6"/>
-    <text x="28" y="43" class="boundary-text">SCOPE / SYSTEM BOUNDARY — REVISE AS NEEDED</text>
-    <g data-zone="governance" class="zone">
-      <rect x="215" y="65" width="470" height="100" rx="13" class="zone-fill gov"/>
-      <text x="450" y="92" text-anchor="middle" class="eyebrow">DIRECTION & REGULATION</text>
-      <text x="450" y="120" text-anchor="middle" class="zone-title">Purpose · Rules · Authority</text>
-      <text x="450" y="144" text-anchor="middle" class="zone-subtitle">Goals, obligations, decisions, constraints</text>
-    </g>
-    <g class="edge" data-edge="governance">
-      <path d="M450 165V211" class="secondary" marker-end="url(#sc-arrow-secondary)"/>
-      <text x="469" y="192" class="edge-text">directs and constrains</text>
-    </g>
-    <g data-zone="capacity" class="zone">
-      <rect x="35" y="231" width="235" height="185" rx="13" class="zone-fill"/>
-      <text x="152" text-anchor="middle" y="259" class="eyebrow">CAPACITY / INPUTS</text>
-      <text x="152" text-anchor="middle" y="302" class="zone-title">Actors & Resources</text>
-      <text x="152" text-anchor="middle" y="332" class="zone-subtitle">Capabilities · dependencies</text>
-      <text x="152" text-anchor="middle" y="356" class="zone-subtitle">Stocks · reserves · constraints</text>
-      <text x="152" text-anchor="middle" y="380" class="zone-subtitle">External inputs</text>
-    </g>
-    <g class="edge" data-edge="material">
-      <path d="M270 323H330" class="primary" marker-end="url(#sc-arrow-primary)"/>
-      <text x="300" y="305" text-anchor="middle" class="edge-text">inputs</text>
-    </g>
-    <g data-zone="operation" class="zone">
-      <rect x="335" y="231" width="230" height="185" rx="13" class="zone-fill operation"/>
-      <text x="450" text-anchor="middle" y="259" class="eyebrow">OPERATIONS / FLOW</text>
-      <text x="450" text-anchor="middle" y="302" class="zone-title">Operations</text>
-      <text x="450" text-anchor="middle" y="332" class="zone-subtitle">Processes · choices</text>
-      <text x="450" text-anchor="middle" y="356" class="zone-subtitle">Transfers · rates · delays</text>
-      <text x="450" text-anchor="middle" y="380" class="zone-subtitle">Interactions</text>
-    </g>
-    <g class="edge" data-edge="material">
-      <path d="M565 323H625" class="primary" marker-end="url(#sc-arrow-primary)"/>
-      <text x="595" y="305" text-anchor="middle" class="edge-text">outputs</text>
-    </g>
-    <g data-zone="outcomes" class="zone">
-      <rect x="630" y="231" width="235" height="185" rx="13" class="zone-fill"/>
-      <text x="747" text-anchor="middle" y="259" class="eyebrow">EFFECTS / RECIPIENTS</text>
-      <text x="747" text-anchor="middle" y="302" class="zone-title">Outcomes</text>
-      <text x="747" text-anchor="middle" y="332" class="zone-subtitle">Value · beneficiaries</text>
-      <text x="747" text-anchor="middle" y="356" class="zone-subtitle">Harms · externalities</text>
-      <text x="747" text-anchor="middle" y="380" class="zone-subtitle">Changed environment</text>
-    </g>
-    <g class="edge" data-edge="feedback">
-      <path d="M747 416V468H153V416" class="secondary feedback-path" marker-end="url(#sc-arrow-secondary)"/>
-      <rect x="300" y="445" width="300" height="42" rx="9" class="feedback-label"/>
-      <text x="450" y="471" text-anchor="middle" class="feedback-text">Observation · Feedback</text>
-    </g>
-    <g class="edge" data-edge="evaluation">
-      <path d="M747 416V513" class="secondary" marker-end="url(#sc-arrow-secondary)"/>
-      <path d="M450 547V165" class="secondary revision-path" marker-end="url(#sc-arrow-secondary)"/>
-    </g>
-    <g data-zone="evaluation" class="zone">
-      <rect x="215" y="510" width="470" height="95" rx="13" class="zone-fill eval"/>
-      <text x="450" y="537" text-anchor="middle" class="eyebrow">MEASUREMENT & REVISION</text>
-      <text x="450" y="565" text-anchor="middle" class="zone-title">Viability · Evaluation</text>
-      <text x="450" y="589" text-anchor="middle" class="zone-subtitle">Baseline · trade-offs · intervention · adaptation</text>
-    </g>
-   </svg>
-  </div>
+  <div class="diagram-container" set:html={practitionerSvg} />
   <div class="map-insight"><strong data-lens-title>{lenses[0].title}</strong><p data-lens-note>{lenses[0].note}</p></div>
   <div class="leverage-panel" data-leverage-panel hidden>
     <div class="leverage-head"><strong>Possible leverage points</strong><span>Meadows-inspired taxonomy · not ranked or validated</span></div>
@@ -126,11 +59,25 @@ const leverage=[
     setLens('overview');
   });
 </script>
-<style>
+<style is:global>
 .system-map{border:1px solid var(--color-border,#536960);background:var(--color-surface,#152521);color:var(--color-text,#e9f2ee);border-radius:14px;padding:clamp(12px,2.3vw,24px);margin:24px 0}.system-map *{box-sizing:border-box}.map-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.map-top strong{font-size:15px;display:block}.map-top small{font-size:11px;opacity:.75;display:block;margin-top:4px}.leverage-toggle{display:flex;gap:7px;align-items:center;font-size:12px;cursor:pointer}.leverage-toggle input{accent-color:#64b89f}.view-tabs{display:flex;flex-wrap:wrap;gap:5px;margin:17px 0}.view-tabs button,.leverage-buttons button{color:inherit;background:transparent;border:1px solid #69827a;border-radius:6px;padding:8px 10px;font-size:12px;cursor:pointer}.view-tabs button[aria-pressed=true],.leverage-buttons button[aria-pressed=true]{background:#286453;color:white;border-color:#8ee6c4;box-shadow:inset 0 0 0 1px #8ee6c4}.system-map button:focus-visible{outline:2px solid #87ddbd;outline-offset:2px}.diagram-container{overflow-x:auto}.canvas-svg{display:block;min-width:680px;width:100%;height:auto;overflow:visible}.canvas-svg text{paint-order:normal}.zone{transition:opacity .15s}.zone-fill{stroke:#709188;stroke-width:1.5;fill:#6b948a;fill-opacity:.10}.zone-fill.operation{fill:#4fbda1;fill-opacity:.16;stroke:#64b89f}.zone-fill.gov{fill:#849bc6;fill-opacity:.13;stroke:#8197bb}.zone-fill.eval{fill:#c09b65;fill-opacity:.11;stroke:#b29a77}.eyebrow{fill:currentColor;font-size:10px;opacity:.74;letter-spacing:1px;font-weight:700}.zone-title{fill:currentColor;font-size:19px;font-weight:700;letter-spacing:-.3px}.zone-subtitle{fill:currentColor;font-size:12px;opacity:.85}.boundary-text{fill:currentColor;font-size:10px;opacity:.6;letter-spacing:1px}.edge{transition:opacity .15s}.edge path{fill:none;stroke-width:3}.edge .primary{stroke:#64b89f}.edge .secondary{stroke:#9aabc5;stroke-dasharray:5 5}.edge-text{fill:currentColor;font-size:12px;opacity:.75}.feedback-path{stroke-width:2}.feedback-label{fill:#253b3b;stroke:#69827a}.feedback-text{fill:#e6f5ee;font-size:13px;font-weight:650}.revision-path{opacity:0}.map-insight{padding:14px 16px;border:1px solid #69827a;border-radius:9px;margin-top:7px}.map-insight strong{font-size:14px}.map-insight p{font-size:13px;line-height:1.6;margin:5px 0}.leverage-panel{margin-top:14px;padding:13px;border:1px solid #69827a;border-radius:9px}.leverage-panel[hidden]{display:none}.leverage-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}.leverage-head strong{font-size:13px}.leverage-head span{opacity:.7;font-size:11px}.leverage-buttons{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}.leverage-description{font-size:12px;margin:0;line-height:1.5}.diagram-caveat{font-size:11px;opacity:.7;line-height:1.5;margin:12px 0 0}
-.system-map[data-focus=structure] .zone:not([data-zone=capacity]):not([data-zone=operation]),.system-map[data-focus=behavior] .zone:not([data-zone=operation]),.system-map[data-focus=knowledge] .zone:not([data-zone=governance]),.system-map[data-focus=authority] .zone:not([data-zone=governance]),.system-map[data-focus=purpose] .zone:not([data-zone=governance]),.system-map[data-focus=evaluation] .zone:not([data-zone=evaluation]):not([data-zone=outcomes]){opacity:.35}
-.system-map[data-focus=structure] .edge:not([data-edge=material]),.system-map[data-focus=behavior] .edge:not([data-edge=feedback]):not([data-edge=material]),.system-map[data-focus=knowledge] .edge:not([data-edge=feedback]),.system-map[data-focus=authority] .edge:not([data-edge=governance]),.system-map[data-focus=purpose] .edge:not([data-edge=governance]),.system-map[data-focus=evaluation] .edge:not([data-edge=evaluation]){opacity:.2}
-.system-map[data-focus=evaluation] .revision-path{opacity:1}
-.system-map[data-leverage=capacity] .zone:not([data-zone=capacity]),.system-map[data-leverage=operation] .zone:not([data-zone=operation]),.system-map[data-leverage=feedback] .edge:not([data-edge=feedback]),.system-map[data-leverage=governance] .zone:not([data-zone=governance]){opacity:.25}
+
+.system-map[data-focus=structure] .zone:not([data-zone=capacity]):not([data-zone=operation]),
+.system-map[data-focus=behavior] .zone:not([data-zone=operation]),
+.system-map[data-focus=knowledge] .zone:not([data-zone=feedback]),
+.system-map[data-focus=authority] .zone:not([data-zone=governance]),
+.system-map[data-focus=purpose] .zone:not([data-zone=governance]),
+.system-map[data-focus=evaluation] .zone:not([data-zone=evaluation]):not([data-zone=outcomes]) {opacity:.25}
+.system-map[data-focus=structure] [data-edge]:not([data-edge=material]),
+.system-map[data-focus=behavior] [data-edge]:not([data-edge=material]):not([data-edge=feedback]),
+.system-map[data-focus=knowledge] [data-edge]:not([data-edge=feedback]),
+.system-map[data-focus=authority] [data-edge]:not([data-edge=governance]):not([data-edge=evaluation]),
+.system-map[data-focus=purpose] [data-edge]:not([data-edge=governance]):not([data-edge=evaluation]),
+.system-map[data-focus=evaluation] [data-edge]:not([data-edge=evaluation]) {opacity:.18}
+.system-map[data-leverage=capacity] .zone:not([data-zone=capacity]),
+.system-map[data-leverage=operation] .zone:not([data-zone=operation]),
+.system-map[data-leverage=governance] .zone:not([data-zone=governance]) {opacity:.22}
+.system-map[data-leverage=feedback] [data-edge]:not([data-edge=feedback]) {opacity:.2}
+.system-map .canvas-svg{min-width:650px;width:100%;height:auto}
 @media(max-width:650px){.map-top{align-items:flex-start}.view-tabs button{font-size:11px}}
 </style>

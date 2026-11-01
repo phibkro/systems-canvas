@@ -1,5 +1,8 @@
 # System Canvas
 
+**Current framing:** Enterprise & Agency Modeling provides linked enterprise and game models; **Enterprise Canvas** is the practitioner interface, and **Human Viable Systems** is the related normative research program. The historical `systems-canvas` repository name and domain remain unchanged.
+
+
 An open, provisional **practitioner method for analyzing, diagnosing, evaluating and refining human systems**. It makes established systems and organizational theory usable through problem-led procedures, progressive disclosure and evidence-aware diagrams.
 
 **Website:** https://systems-canvas.phibkro.org  

@@ -1,38 +1,39 @@
 # System Canvas
 
-**A provisional, teachable framework for diagnosing and redesigning systems.**
+A provisional, open **systems diagnosis and redesign** method connecting structural, behavioral, epistemic, deontic, teleological and evaluative analysis to testable interventions.
 
-System Canvas joins six analytical lenses—structural, behavioral, epistemic, deontic, teleological and evaluative—to a practical improvement cycle:
+**Website:** https://systems-canvas.phibkro.org  
+**Interactive case:** https://systems-canvas.phibkro.org/cases/journalism/
 
-**Frame → Map → Explain mechanisms → Redesign → Test and adapt.**
+## Documents
 
-The framework is not a new universal mathematical ontology. It is a methodological synthesis whose effectiveness, transferability and teachability remain research questions.
-
-## Read by purpose
-
-| Purpose | Document |
+| Resource | Source |
 |---|---|
-| Central design thesis | [Core](docs/system-canvas-core.md) |
-| Learn by doing | [Course](docs/system-canvas-course.md) |
-| Analyze real situations | [Field guide](docs/system-canvas-field-guide.md) |
-| Understand motivating examples | [Analytical cases](docs/system-canvas-analytical-cases.md) |
-| Examine scientific claims | [Research thesis](research/system-canvas-research-thesis.md) |
-| Evaluate results | [Validation protocol](research/system-canvas-validation-protocol.md) |
-| Contribute domain expertise | [Expert brief](research/system-canvas-expert-brief.md) |
-| Track undeveloped ideas | [Insight register](research/system-canvas-insight-register.md) |
+| Core thesis | [docs/system-canvas-core.md](docs/system-canvas-core.md) |
+| Learning course | [docs/system-canvas-course.md](docs/system-canvas-course.md) |
+| Practitioner field guide | [docs/system-canvas-field-guide.md](docs/system-canvas-field-guide.md) |
+| Analytical cases | [docs/system-canvas-analytical-cases.md](docs/system-canvas-analytical-cases.md) |
+| Research thesis | [research/system-canvas-research-thesis.md](research/system-canvas-research-thesis.md) |
+| Validation protocol | [research/system-canvas-validation-protocol.md](research/system-canvas-validation-protocol.md) |
+| Expert brief | [research/system-canvas-expert-brief.md](research/system-canvas-expert-brief.md) |
+| Insight register | [research/system-canvas-insight-register.md](research/system-canvas-insight-register.md) |
 
-## Three parallel tracks
+## Website architecture
 
-1. **Research:** formal foundations, prior art, defensible hypotheses, expert scrutiny.
-2. **Practice:** diagnostic questions, visual submodels, intervention techniques.
-3. **Education:** worked cases, exercises and independent transfer.
+The production website now uses the **[Stratus](https://github.com/CloudCannon/stratus-astro-documentation-template)** Astro documentation starter (MIT licensed). Builds checkout a **pinned upstream commit** into `.stratus-build`; `scripts/prepare-stratus.mjs` overlays this repository's source Markdown, branding and interactive six-perspective Astro component. This intentionally preserves the documents as the canonical source, with reproducible template builds. Stratus's generated application is not checked into this repository.
 
-Theory is an optional deep dive for learners, but essential to the scientific claims. Applications can supply empirical material; they are not by themselves proof of effectiveness.
+The template already supplies MDX, Mermaid, Pagefind search, sidebar navigation, print layouts, sitemap, AI-readable Markdown and `llms.txt`. See [integration decisions](INTEGRATIONS.md).
 
-## Status
+To build locally (Node 24.18 or compatible version):
 
-Working draft (November 2026). Examples are teaching scenarios unless accompanied by sources and evaluation. HVSM is a related human-centered normative perspective, not an implicit requirement of every System Canvas analysis.
+```bash
+npm run build
+cd .stratus-build
+npm run preview
+```
 
-## Website
+See [deployment instructions](DEPLOYMENT.md) for Cloudflare Pages.
 
-The Astro + MDX website is configured for Cloudflare Pages using `npm run build` and the `dist` output directory. Explore the interactive six-lens journalism case at `/cases/journalism/` after deployment. See [DEPLOYMENT.md](DEPLOYMENT.md).
+## Research status
+
+System Canvas is a **proposed integration**, not an empirically validated new theory. Teaching cases are illustrative; actual results require source evidence, baseline comparison and evaluation. Scientific, practical and educational tracks develop in parallel.

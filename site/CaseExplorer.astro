@@ -1,0 +1,64 @@
+---
+const views = [
+ {id:'structural',name:'Structure',prompt:'Who controls resources, channels and boundaries?',edges:['publishes through','reaches through'],insight:'Distribution access and decision rights are unequal.',test:'What channels are controlled by each participant?'},
+ {id:'behavioral',name:'Behavior',prompt:'Which actions and feedback reproduce the outcome?',edges:['optimizes for reach','reacts to rankings'],insight:'Repeated incentives may reward some editorial practices.',test:'Do changes in visibility causally affect editorial decisions?'},
+ {id:'epistemic',name:'Knowledge',prompt:'Who knows, verifies, corrects or contests claims?',edges:['makes claims','transmits claims'],insight:'Accuracy, credibility and belief are not the same thing.',test:'Where are claims checked, and who sees corrections?'},
+ {id:'deontic',name:'Authority',prompt:'Who has authority, obligations and appeal rights?',edges:['platform policies','moderation powers'],insight:'Rules can exist without accountable enforcement.',test:'Who can challenge the rules and review decisions?'},
+ {id:'teleological',name:'Purpose',prompt:'Whose goals and operational metrics conflict?',edges:['quality versus reach','retention versus access'],insight:'Declared purposes may differ from rewarded behavior.',test:'Which operational goals are observed rather than inferred?'},
+ {id:'evaluative',name:'Outcomes',prompt:'What follows, for whom, and on what evidence?',edges:['reach and quality','trust and effects'],insight:'Engagement is not a reliable proxy for public benefit.',test:'Which results and adverse effects would indicate success?'}
+];
+const changes = [
+ {name:'No intervention',effect:'No improvement is assumed without a baseline.',risk:'Continuing effects and missing evidence remain.'},
+ {name:'Visible corrections',effect:'Corrections might improve public understanding.',risk:'Corrections may be missed or selectively applied.'},
+ {name:'Independent distribution audit',effect:'An audit might reveal incentives and rule discrepancies.',risk:'Audit access, privacy and gaming may conflict.'},
+ {name:'Shared appeals process',effect:'Appeals might improve procedural accountability.',risk:'Procedural complexity and unequal participation.'}
+];
+---
+<section class="canvas-demo" aria-label="Interactive System Canvas analysis">
+  <div class="demo-header"><strong>System Canvas / Journalism ecosystem</strong><span>Hypothetical case</span></div>
+  <div class="lens-tabs" role="group" aria-label="Choose an analytical lens">
+    {views.map((v,i)=><button type="button" data-lens={i} aria-pressed={i===0?'true':'false'}>{v.name}</button>)}
+  </div>
+  <h3 id="lens-prompt">{views[0].prompt}</h3>
+  <div class="map" aria-label="Three participants and two analytical connections">
+    <div class="participant">Newsroom</div>
+    <div class="edge"><span id="edge-one">{views[0].edges[0]}</span> →</div>
+    <div class="participant">Platform</div>
+    <div class="edge"><span id="edge-two">{views[0].edges[1]}</span> →</div>
+    <div class="participant">Audience</div>
+  </div>
+  <div class="insights">
+    <div><small>DIAGNOSTIC INSIGHT</small><p id="lens-insight">{views[0].insight}</p></div>
+    <div><small>EVIDENCE TO COLLECT</small><p id="lens-test">{views[0].test}</p></div>
+  </div>
+  <label for="case-intervention">Explore a proposed intervention</label>
+  <select id="case-intervention">{changes.map((c,i)=><option value={i}>{c.name}</option>)}</select>
+  <p><strong>Hypothesized effect:</strong> <span id="case-effect">{changes[0].effect}</span></p>
+  <p><strong>Potential drawback:</strong> <span id="case-risk">{changes[0].risk}</span></p>
+  <p class="disclaimer">These relationships are illustrative, not evidence of a real platform or a numerical simulation.</p>
+</section>
+<script define:vars={{views,changes}}>
+  const root=document.querySelector('.canvas-demo');
+  if(root){
+    root.querySelectorAll('[data-lens]').forEach(b=>b.addEventListener('click',()=>{
+      const index=Number(b.dataset.lens),v=views[index];
+      root.querySelectorAll('[data-lens]').forEach(tab=>tab.setAttribute('aria-pressed',String(tab===b)));
+      root.querySelector('#lens-prompt').textContent=v.prompt;
+      root.querySelector('#edge-one').textContent=v.edges[0];
+      root.querySelector('#edge-two').textContent=v.edges[1];
+      root.querySelector('#lens-insight').textContent=v.insight;
+      root.querySelector('#lens-test').textContent=v.test;
+    }));
+    root.querySelector('#case-intervention').addEventListener('change',e=>{
+      const c=changes[Number(e.target.value)];
+      root.querySelector('#case-effect').textContent=c.effect;
+      root.querySelector('#case-risk').textContent=c.risk;
+    });
+  }
+</script>
+<style>
+.canvas-demo{padding:clamp(16px,3vw,26px);border:1px solid var(--color-border,#415056);border-radius:14px;background:var(--color-surface,#18272a);color:var(--color-text,#e6f1ee);margin:30px 0}
+.demo-header{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:13px;margin-bottom:18px}.demo-header span{color:var(--color-accent,#6ed4b6)}
+.lens-tabs{display:flex;flex-wrap:wrap;gap:7px}.lens-tabs button{border:1px solid #738b89;background:transparent;color:inherit;border-radius:7px;padding:9px 11px;cursor:pointer;font-size:12px}.lens-tabs button[aria-pressed=true]{background:#316959;color:white;border-color:#79d8b9}.lens-tabs button:focus-visible,.canvas-demo select:focus-visible{outline:2px solid #79d8b9;outline-offset:3px}
+.canvas-demo h3{margin:22px 0 16px!important}.map{display:flex;align-items:center;gap:8px;overflow-x:auto;padding:16px 0}.participant{border:1px solid #658d83;background:#264c45;padding:20px 12px;border-radius:8px;font-size:13px;min-width:95px;text-align:center;color:#fff}.edge{text-align:center;min-width:80px;font-size:11px;color:inherit}.edge span{display:block;min-width:80px}.insights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.insights>div{border:1px solid #658d83;border-radius:8px;padding:15px}.insights small{letter-spacing:.08em;font-weight:700;font-size:10px}.insights p{margin:8px 0 0;font-size:13px;line-height:1.6}.canvas-demo label{display:block;margin-bottom:8px;font-size:13px;font-weight:700}.canvas-demo select{width:100%;padding:9px;background:#264c45;border:1px solid #658d83;color:white;border-radius:6px}.canvas-demo>p{font-size:13px}.canvas-demo .disclaimer{font-size:11px;opacity:.75;margin-top:18px}@media(max-width:670px){.insights{grid-template-columns:1fr}}
+</style>

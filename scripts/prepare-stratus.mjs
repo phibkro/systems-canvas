@@ -29,7 +29,7 @@ write(path.join(docsDir,'cases/journalism.mdx'),[
  '---','title: "Journalism ecosystem: interactive case"',
  'description: "Explore the same system through six analytical lenses."',
  'group: "Explore"','order: 10','---','',
- "import CaseExplorer from '../../components/custom/CaseExplorer.astro';",'',
+ "import CaseExplorer from '../../../components/custom/CaseExplorer.astro';",'',
  '# One system, six analytical views','',
  'A teaching scenario about journalists, distribution platforms and audiences. The relationships are **illustrative**, not established claims about a particular platform.','',
  '<CaseExplorer />','',

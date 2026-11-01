@@ -4,7 +4,7 @@ export default {
   reporters: ["clear-text", "progress", "html"],
   coverageAnalysis: "off",
   concurrency: 2,
-  thresholds: { high: 85, low: 65, break: 0 },
+  thresholds: { high: 95, low: 85, break: 85 },
   vitest: { related: true },
   tempDirName: ".stryker-tmp",
 };

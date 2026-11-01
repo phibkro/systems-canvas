@@ -42,7 +42,7 @@ write(path.join(docsDir,'canvas/index.mdx'),[
  '- Can optional analytical views improve reasoning without overwhelming the initial worksheet?',
  '- Can the practitioner separate causal hypotheses from evidence, account for affected parties, and propose testable changes?','',
  'The example is hypothetical, not a documented claim about journalism or platform algorithms. See the [field guide](/docs/system-canvas-field-guide/) and [validation protocol](/research/system-canvas-validation-protocol/).',''
-].join('\\n'));
+].join('\n'));
 write(path.join(docsDir,'cases/journalism.mdx'),[
  '---','title: "Journalism ecosystem: interactive case"',
  'description: "Explore the same system through six analytical lenses."',

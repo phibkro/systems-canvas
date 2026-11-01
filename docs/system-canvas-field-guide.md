@@ -4,7 +4,7 @@
 
 ## Read the system spatially
 
-Use the [interactive spatial diagram](/canvas/) as an **orientation before completing the worksheet**.
+Use the [interactive spatial diagram](/canvas/) as an **orientation before completing the worksheet**. In the vertical practitioner view, **Capacity → Operations → Outcomes** is the central thread; **Observation & Feedback** sits to the left, **Purpose & Governance** to the right, and **Evaluation & Learning** below. The return paths make revision explicit without implying that learning is automatic.
 
 ![Vertical practitioner canvas: capacity enables operations, operations create outcomes, feedback and governance flank the central process, and evaluation revises the system.](/diagrams/practitioner-vertical.svg)
 

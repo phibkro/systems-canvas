@@ -1,24 +1,12 @@
 {
   "name": "systems-canvas",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
+  "description": "Stratus-based documentation for the System Canvas framework",
   "scripts": {
-    "dev": "node scripts/prepare-stratus.mjs && cd .stratus-build && npm run dev",
     "build": "bash scripts/build-stratus.sh",
-    "preview": "cd .stratus-build && npm run preview",
-    "check": "astro check"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^4.3.0",
-    "@astrojs/react": "^4.4.0",
-    "astro": "^5.13.0",
-    "mermaid": "^11.10.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.4",
-    "typescript": "^5.9.2"
+    "dev": "bash scripts/build-stratus.sh && cd .stratus-build && npm run dev",
+    "preview": "cd .stratus-build && npm run preview"
   }
 }

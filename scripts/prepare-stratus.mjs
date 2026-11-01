@@ -36,7 +36,8 @@ write(path.join(target,'src/components/custom/DiagnosticCanvas.astro'),fs.readFi
 write(path.join(target,'src/components/custom/SystemSpatialModel.astro'),fs.readFileSync(path.join(root,'site/SystemSpatialModel.astro'),'utf8'));
 for(const [src,name] of [
  ['site/assets/practitioner-vertical.svg','practitioner-vertical.svg'],
- ['site/assets/six-aspect.svg','six-aspect.svg']
+ ['site/assets/six-aspect.svg','six-aspect.svg'],
+ ['site/assets/journalism-vertical.svg','journalism-vertical.svg']
 ]){
  const asset=fs.readFileSync(path.join(root,src),'utf8');
  write(path.join(target,'public/diagrams',name),asset);

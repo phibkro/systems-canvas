@@ -1,5 +1,8 @@
 # System Canvas — Research Thesis
 
+**Current research positioning:** [Enterprise & Agency Modeling](/docs/enterprise-agency-modeling/) combines operational [Enterprise Models](/docs/enterprise-model/) and strategic [Game Models](/docs/game-model/). The Enterprise Canvas is its accessible interface, while [Human Viable Systems](/docs/human-viable-systems/) states related normative research aims. These are proposed distinctions, not empirically demonstrated advantages.
+
+
 ## Revised primary research claim: accessible application, not broader theory
 
 **Primary hypothesis:** a problem-first, progressively disclosed procedure can help practitioners with limited specialist training **apply relevant insights from organizational cybernetics, IAD, 4EM and enterprise architecture** with less cognitive burden, while preserving or improving the quality of their diagnosis and proposed intervention.

@@ -1,34 +1,45 @@
 # Publish System Canvas on Cloudflare Pages
 
-The repository includes a VitePress site with Mermaid diagrams and built-in local search.
+## Current implementation
 
-## Cloudflare Pages: Git integration
+The site currently uses **Astro 5, MDX and React**. The Stratus documentation starter is the selected design target; its full source has not yet been incorporated. The interactive journalism case and Markdown document renderer work with Astro independently of the template.
 
-1. Open [Cloudflare dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**.
-2. Authorize GitHub and choose **phibkro/systems-canvas**; production branch **main**.
-3. Configure build:
-   - **Framework preset:** None (or VitePress if available)
-   - **Build command:** `npm run docs:build`
-   - **Build output directory:** `.vitepress/dist`
-   - **Root directory:** repository root
-   - **Node.js:** 20 or 22 (set `NODE_VERSION=22` if the build environment requires it).
-4. Deploy and confirm the generated `*.pages.dev` site works.
-5. In the Pages project's **Custom domains**, add **systems-canvas.phibkro.org**. If the `phibkro.org` DNS zone is managed by the same Cloudflare account, Cloudflare can typically provision the DNS record and certificate. Otherwise follow its displayed DNS instructions.
-6. Test navigation, Mermaid diagrams, search and mobile layout. Future commits to `main` should trigger automatic builds.
+## Cloudflare Pages — settings to fix the failed build
 
-## Local preview
+- Repository: `phibkro/systems-canvas`
+- Production branch: `main`
+- Framework: **Astro** (or None)
+- **Build command: `npm run build`**
+- **Build output: `dist`**
+- Root: repository root
+- Node: **22** (see `.nvmrc`)
+
+**Previous VitePress values (`npm run docs:build` and `.vitepress/dist`) are no longer valid.** Update the Cloudflare Pages settings, then retry.
+
+After a successful `pages.dev` preview, add `systems-canvas.phibkro.org` under the Pages project's Custom Domains. If domain DNS is managed in the same Cloudflare account, follow the automatic DNS and certificate setup.
+
+## Verify before publishing
 
 ```sh
 npm install
-npm run docs:dev
-npm run docs:build
+npm run build
+npm run preview
 ```
 
-## Troubleshooting
+Also check the GitHub Actions `site-build` workflow, which tests the production build on every commit. The Cloudflare build log remains the authoritative record of its actual failure.
 
-- Build errors: inspect Pages deployment logs and check Node version.
-- Custom domain not active: verify DNS ownership, CNAME and TLS status in Cloudflare.
-- Mermaid errors: check the Markdown `mermaid` fenced code syntax.
-- Broken links: run a production build; VitePress validates internal links.
+## Stratus adoption
 
-The project does **not** require a Cloudflare API token in GitHub if using Cloudflare Pages' native Git integration.
+Stratus upstream: https://github.com/CloudCannon/stratus-astro-documentation-template (MIT licensed).
+
+Stratus already provides:
+- MDX and Mermaid
+- Grouped documentation and sidebars
+- Pagefind search, table of contents, print and PDF views
+- A broad component catalog and CloudCannon editing support
+
+For a clean migration, adopt Stratus **as the application foundation** and port the existing project documents, interactive CaseExplorer and custom domain. Avoid pasting Stratus components into the current homegrown layout ad hoc. Stratus content must be `.mdx` in `src/content/docs/` with `group` and `order` frontmatter, rather than the current `docs/*.md` routes. CloudCannon is optional for deployment to Cloudflare Pages.
+
+The upstream template pins Node 24.18.0; verify that Cloudflare's build environment supports it before switching from the current Node 22 setup.
+
+See: https://astro.build/themes/details/stratus/

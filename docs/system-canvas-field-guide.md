@@ -2,6 +2,49 @@
 
 **Provisional method, not yet validated**
 
+## The default canvas: minimum viable diagnosis
+
+**Start here before choosing any theoretical lens.** The canvas is a discussion and decision aid, not a complete organizational map.
+
+| Field | Plain-language prompt |
+|---|---|
+| **Problem** | What undesirable or puzzling outcome keeps recurring? |
+| **People and boundary** | Who participates, who is affected, and what lies outside this sketch? |
+| **Mechanism** | What rules, dependencies, incentives, information gaps or feedback might reproduce it? |
+| **Evidence** | What do we know, what do we infer, and what would disprove the explanation? |
+| **Judgment** | For whom is the result good or bad, under which purposes and criteria? |
+| **Change** | Who could change which lever, and what consequences should we monitor? |
+
+A novice should be able to explain the sketch in ordinary language. Add detail only when it would change an inference, decision or evaluation.
+
+### Four practical modes
+
+- **Analyze** — establish a sufficiently useful picture. Expand Structure or relevant enterprise-architecture viewpoints only as needed.
+- **Diagnose** — explain persistence, show a feedback or strategic mechanism, and write rival hypotheses.
+- **Evaluate** — distinguish declared aims, operating metrics, effects, distributional costs, viability and legitimacy; record uncertainty.
+- **Refine** — choose an intervention, implementation authority, baseline, safeguards and next observation.
+
+The existing five moves are a **suggested facilitation sequence**, while these modes are **capabilities that can be revisited in any order**.
+
+### When to open a deeper lens
+
+| Symptom | First additional view | Established theory to consult if needed |
+|---|---|---|
+| Coordination, duplication, brittle dependencies | Structure / Behavior | Enterprise architecture, VSM |
+| A rule creates perverse incentives | Authority / Behavior | IAD, institutional economics |
+| Disputes over what is true | Knowledge | Evidence evaluation, epistemology |
+| Nobody can change an obviously defective rule | Authority / Purpose | IAD, second-order cybernetics |
+| Reported success conceals harm to another group | Outcomes / Purpose | Program evaluation, ecological economics |
+| Separate institutions reinforce one another's failures | Behavior / Structure | Compositional games, network analysis |
+
+Escalate model complexity **only if the simpler view cannot answer a consequential question**. Stop adding diagrams when the next analytical action is to obtain evidence, consult affected parties, or test a change.
+
+### Usability is not just aesthetics
+
+Review whether independent practitioners can reproduce the reasoning and avoid false causal conclusions. Record **completion time, points of confusion, omissions, unwarranted causal claims, and intervention quality**. A visually elegant canvas that encourages unjustified inference is not accessible in the relevant sense.
+
+
+
 ## Five moves
 
 **Frame → Map → Explain → Redesign → Test and adapt.**

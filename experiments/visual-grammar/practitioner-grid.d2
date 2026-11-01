@@ -1,0 +1,33 @@
+# Practitioner Canvas using D2 grid
+direction: right
+grid-rows: 4
+grid-columns: 3
+grid-gap: 50
+classes: {
+  invisible: { style.opacity: 0 }
+  governance: { style: { fill: "#393322"; stroke: "#e5bc72"; font-color: "#fff3dd"; border-radius: 14 } }
+  capacity: { style: { fill: "#153c34"; stroke: "#69d5b1"; font-color: "#e9fff7"; border-radius: 14 } }
+  operations: { style: { fill: "#183c4b"; stroke: "#83c9e5"; font-color: "#e9f7ff"; border-radius: 14 } }
+  outcomes: { style: { fill: "#26324a"; stroke: "#a9bafa"; font-color: "#eef3ff"; border-radius: 14 } }
+  feedback: { style: { fill: "#302940"; stroke: "#c5a0ed"; font-color: "#f3eaff"; border-radius: 14 } }
+  evaluate: { style: { fill: "#353828"; stroke: "#d2c085"; font-color: "#fff9e4"; border-radius: 14 } }
+}
+padTopLeft.class: invisible
+governance: "PURPOSE & GOVERNANCE\nGoals · rules · decision rights" { class: governance; width: 320; height: 110 }
+padTopRight.class: invisible
+capacity: "CAPACITY\nPeople · resources · dependencies" { class: capacity; width: 320; height: 135 }
+operations: "OPERATIONS\nActivities · decisions · flows" { class: operations; width: 320; height: 135 }
+outcomes: "OUTCOMES\nBenefits · harms · externalities" { class: outcomes; width: 320; height: 135 }
+padMiddleLeft.class: invisible
+feedback: "OBSERVATION & FEEDBACK\nSignals · errors · monitoring" { class: feedback; width: 320; height: 110 }
+padMiddleRight.class: invisible
+padLastLeft.class: invisible
+evaluation: "EVALUATION & REFINEMENT\nCriteria · learning · tests" { class: evaluate; width: 320; height: 110 }
+padLastRight.class: invisible
+capacity -> operations
+operations -> outcomes
+governance -> operations
+outcomes -> feedback
+feedback -> operations
+outcomes -> evaluation
+evaluation -> governance

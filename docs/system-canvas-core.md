@@ -1,5 +1,8 @@
 # System Canvas — Core Thesis and Design
 
+> **Positioning:** [Enterprise & Agency Modeling](/docs/enterprise-agency-modeling/) links [Enterprise Models](/docs/enterprise-model/) and [Game Models](/docs/game-model/). **Enterprise Canvas** is its practitioner interface; [Human Viable Systems](/docs/human-viable-systems/) is the related normative research program. Earlier material retains the original System Canvas name for continuity.
+
+
 **Provisional practitioner-method thesis · v0.3**
 
 ## Canonical visual grammar — spatial relations before notation

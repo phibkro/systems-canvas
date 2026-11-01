@@ -1,45 +1,40 @@
-# Publish System Canvas on Cloudflare Pages
+# Deployment: System Canvas (Stratus + Cloudflare Pages)
 
-## Current implementation
+The Cloudflare Pages project **systems-canvas** is connected to the GitHub repository **phibkro/systems-canvas** and publishes **systems-canvas.phibkro.org**.
 
-The site currently uses **Astro 5, MDX and React**. The Stratus documentation starter is the selected design target; its full source has not yet been incorporated. The interactive journalism case and Markdown document renderer work with Astro independently of the template.
+## Production settings
 
-## Cloudflare Pages — settings to fix the failed build
+| Setting | Value |
+|---|---|
+| Build command | `npm run build` |
+| Output directory | `.stratus-build/dist` |
+| Root directory | `/` |
+| Build environment | Node 24.18.0 (`NODE_VERSION` in Pages project configuration) |
+| Production branch | `main` |
+| DNS | CNAME `systems-canvas.phibkro.org` → `systems-canvas.pages.dev` |
 
-- Repository: `phibkro/systems-canvas`
-- Production branch: `main`
-- Framework: **Astro** (or None)
-- **Build command: `npm run build`**
-- **Build output: `dist`**
-- Root: repository root
-- Node: **22** (see `.nvmrc`)
+The earlier VitePress and custom Astro configurations are superseded. **Do not change output back to `dist` or `.vitepress/dist`.**
 
-**Previous VitePress values (`npm run docs:build` and `.vitepress/dist`) are no longer valid.** Update the Cloudflare Pages settings, then retry.
+## What the build does
 
-After a successful `pages.dev` preview, add `systems-canvas.phibkro.org` under the Pages project's Custom Domains. If domain DNS is managed in the same Cloudflare account, follow the automatic DNS and certificate setup.
+1. `scripts/build-stratus.sh` checks out [Stratus](https://github.com/CloudCannon/stratus-astro-documentation-template) at commit `371843802d4c38ad08a7267ddbf33ee1e0632c96` into `.stratus-build`.
+2. `scripts/prepare-stratus.mjs` copies the Markdown corpus as Stratus MDX content collection entries, repairs internal links, adds the interactive case, and configures branding/SEO.
+3. Stratus installs dependencies from its lockfile and runs its own production build with its Pagefind search-index step.
+4. Cloudflare Pages publishes `.stratus-build/dist` automatically on pushes to `main`.
 
-## Verify before publishing
+This design minimizes maintenance but requires GitHub access to the pinned upstream template during builds. An alternative later is vendoring or mirroring Stratus into the repository.
 
-```sh
-npm install
-npm run build
-npm run preview
-```
+## Validation
 
-Also check the GitHub Actions `site-build` workflow, which tests the production build on every commit. The Cloudflare build log remains the authoritative record of its actual failure.
+Cloudflare production build for `72b865b` passed on 2026-11-01. It generated documentation routes and indexed the static site with Pagefind. Browser Rendering verified the homepage, course, research thesis and interactive journalism page after deployment.
 
-## Stratus adoption
+For future verification:
 
-Stratus upstream: https://github.com/CloudCannon/stratus-astro-documentation-template (MIT licensed).
+- Run `npm run build` locally; the script requires `git` and Node.js.
+- Inspect [Cloudflare dashboard](https://dash.cloudflare.com/) → Workers & Pages → systems-canvas → Deployments for failures.
+- Check `/`, `/docs/system-canvas-course/`, `/research/system-canvas-research-thesis/`, and `/cases/journalism/`.
+- Test search, tab switching, accessibility and mobile layout in a browser.
 
-Stratus already provides:
-- MDX and Mermaid
-- Grouped documentation and sidebars
-- Pagefind search, table of contents, print and PDF views
-- A broad component catalog and CloudCannon editing support
+## Attribution
 
-For a clean migration, adopt Stratus **as the application foundation** and port the existing project documents, interactive CaseExplorer and custom domain. Avoid pasting Stratus components into the current homegrown layout ad hoc. Stratus content must be `.mdx` in `src/content/docs/` with `group` and `order` frontmatter, rather than the current `docs/*.md` routes. CloudCannon is optional for deployment to Cloudflare Pages.
-
-The upstream template pins Node 24.18.0; verify that Cloudflare's build environment supports it before switching from the current Node 22 setup.
-
-See: https://astro.build/themes/details/stratus/
+Stratus is developed by CloudCannon and distributed under the MIT license. See [upstream license](https://github.com/CloudCannon/stratus-astro-documentation-template/blob/main/LICENSE).

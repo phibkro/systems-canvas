@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import fc from "fast-check";
-import { initialState, reduce, assertValid } from "../site/system-canvas-state.mjs";
+import { initialState, reduce, assertValid } from "../site/system-canvas-state.ts";
 
 const configs = {
   map:{kind:"map", lenses:[{id:"overview"},{id:"authority"},{id:"behavior"}], leverage:[{id:"rules"},{id:"feedback"}]},

@@ -1,9 +1,24 @@
 # System Canvas
 
-A provisional, open **systems diagnosis and redesign** method connecting structural, behavioral, epistemic, deontic, teleological and evaluative analysis to testable interventions.
+An open, provisional **practitioner method for analyzing, diagnosing, evaluating and refining human systems**. It makes established systems and organizational theory usable through problem-led procedures, progressive disclosure and evidence-aware diagrams.
 
 **Website:** https://systems-canvas.phibkro.org  
 **Interactive case:** https://systems-canvas.phibkro.org/cases/journalism/
+
+## What System Canvas is for
+
+**System Canvas translates established systems and organizational theory into accessible procedures for analyzing, diagnosing, evaluating and refining human systems.** Its primary audience is practitioners working with businesses, public institutions, civic governance, communities and other sociotechnical organizations.
+
+| Practitioner capability | Question | Useful output |
+|---|---|---|
+| Analyze | What actors, boundaries, dependencies and rules matter? | A comprehensible system view |
+| Diagnose | What mechanism reproduces the problem? | A falsifiable causal hypothesis |
+| Evaluate | What works, for whom, and with what side effects? | An evidence-based assessment |
+| Refine | What can we change, and how will we learn? | An accountable intervention and monitoring plan |
+
+**Start with the problem, not the theory.** The [field guide](docs/system-canvas-field-guide.md) is usable without knowing VSM, IAD, open games or category theory. Six analytical lenses and deeper theoretical models are introduced when they improve the diagnosis, not as mandatory forms to complete.
+
+The design ambition draws on the **approachability of Business Model Canvas, C4, 4EM and ArchiMate** while retaining analytical links to Beer’s VSM, Ostrom’s IAD, second-order cybernetics and organizational theory. This does not claim those established frameworks lack practical methods; the incremental claim is reduced learning and application cost **without a loss of diagnostic validity**.
 
 ## Documents
 

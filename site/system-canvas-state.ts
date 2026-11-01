@@ -15,11 +15,16 @@ export const CaseStateSchema = v.strictObject({
   lens: v.pipe(v.number(), v.integer(), v.minValue(0)),
   intervention: v.pipe(v.number(), v.integer(), v.minValue(0))
 });
+const StringRecordSchema = v.pipe(
+  v.custom<Record<string,string>>((input) =>
+    input!==null && typeof input==="object" && !Array.isArray(input)),
+  v.record(v.string(),v.string())
+);
 export const WorksheetStateSchema = v.strictObject({
   kind: v.literal("worksheet"),
   lens: v.pipe(v.number(), v.integer(), v.minValue(0)),
-  answers: v.record(v.string(), v.string()),
-  notes: v.record(v.string(), v.string()),
+  answers: StringRecordSchema,
+  notes: StringRecordSchema,
   notice: v.string()
 });
 export const StateSchema = v.union([

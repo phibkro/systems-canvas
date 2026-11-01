@@ -1,8 +1,8 @@
 # System Canvas interaction tests
 
-The Explore pages use a small, immutable **reducer + dispatch** pattern, not a full statechart framework.
+The Explore pages use a small, immutable **TypeScript + Valibot reducer + dispatch** pattern, not a full statechart framework.
 
-- Pure domain state: [`site/system-canvas-state.mjs`](site/system-canvas-state.mjs)
+- Pure domain state: [`site/system-canvas-state.ts`](site/system-canvas-state.ts)
 - DOM adapter: [`site/system-canvas-interactions.js`](site/system-canvas-interactions.js)
 - Astro integration: [`scripts/prepare-stratus.mjs`](scripts/prepare-stratus.mjs) adds the controller to the Stratus base layout.
 

@@ -16,10 +16,12 @@ jobs:
           node-version-file: .nvmrc
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Property and reducer tests
+        run: npm test
       - name: Build production site
         run: npm run build
       - name: Upload static site
         uses: actions/upload-artifact@v4
         with:
           name: site-dist
-          path: dist
+          path: .stratus-build/dist

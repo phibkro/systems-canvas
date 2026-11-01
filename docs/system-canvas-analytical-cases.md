@@ -2,6 +2,31 @@
 
 **Illustrative analytical hypotheses, not empirical findings**
 
+## Spatial view of the journalism case
+
+```mermaid
+flowchart TB
+  G["Governance: editorial goals · platform rules · appeals"]
+  subgraph B["Boundary selected for this case"]
+    direction LR
+    C["Capacity: reporters · sources · funding"]
+    O["Operations: verify · publish · distribute"]
+    E["Outcomes: reach · beliefs · trust · investigative coverage"]
+    C --> O --> E
+  end
+  F["Observation: engagement metrics · corrections · investigations"]
+  V["Evaluation: accuracy · labor costs · public benefit"]
+  G -. "Goals and rules" .-> O
+  E -. "Reported signals" .-> F
+  F -. "Possible feedback" .-> O
+  E --> V
+  V -. "Review" .-> G
+```
+
+**Every arrow is initially a hypothesis or a question.** A newsroom's metrics might influence editorial decisions; platform distribution practices require evidence rather than assumption. Selecting *Knowledge* reveals claims and their verification, *Authority* reveals rule-setting and appeal, *Behavior* reveals possible feedback, and *Evaluation* reveals impacts on different parties.
+
+
+
 ## Case presentation standard: smallest useful model first
 
 Each case should demonstrate how accessible modeling progresses **only when necessary**, rather than displaying the entire six-lens system immediately.

@@ -26,6 +26,7 @@ for(const [input,title,group,order] of entries){
 }
 write(path.join(target,'src/components/custom/CaseExplorer.astro'),fs.readFileSync(path.join(root,'site/CaseExplorer.astro'),'utf8'));
 write(path.join(target,'src/components/custom/DiagnosticCanvas.astro'),fs.readFileSync(path.join(root,'site/DiagnosticCanvas.astro'),'utf8'));
+write(path.join(target,'src/components/custom/SystemSpatialModel.astro'),fs.readFileSync(path.join(root,'site/SystemSpatialModel.astro'),'utf8'));
 write(path.join(docsDir,'canvas/index.mdx'),[
  '---',
  'title: "Diagnostic canvas prototype"',
@@ -33,9 +34,12 @@ write(path.join(docsDir,'canvas/index.mdx'),[
  'group: "Explore"',
  'order: 1',
  '---','',
- "import DiagnosticCanvas from '../../../components/custom/DiagnosticCanvas.astro';",'',
+ "import DiagnosticCanvas from '../../../components/custom/DiagnosticCanvas.astro';",
+ "import SystemSpatialModel from '../../../components/custom/SystemSpatialModel.astro';",'',
  '# Start with a problem, not a theory','',
  'This **experimental prototype** translates the practitioner field guide into a single worksheet. Fill six simple prompts, open a deeper view only when necessary, and export your work. It does **not** store your content on a server. Edits remain in the current browser tab until exported.','',
+ '<SystemSpatialModel />','',
+ '## Fill out the diagnosis','',
  '<DiagnosticCanvas />','',
  '## What this prototype tests','',
  '- Can someone reach a defensible diagnosis without prior VSM, IAD, 4EM or systems-theory training?',
@@ -47,9 +51,12 @@ write(path.join(docsDir,'cases/journalism.mdx'),[
  '---','title: "Journalism ecosystem: interactive case"',
  'description: "Explore the same system through six analytical lenses."',
  'group: "Explore"','order: 10','---','',
- "import CaseExplorer from '../../../components/custom/CaseExplorer.astro';",'',
+ "import CaseExplorer from '../../../components/custom/CaseExplorer.astro';",
+ "import SystemSpatialModel from '../../../components/custom/SystemSpatialModel.astro';",'',
  '# One system, six analytical views','',
  'A teaching scenario about journalists, distribution platforms and audiences. The relationships are **illustrative**, not established claims about a particular platform.','',
+ '<SystemSpatialModel />','',
+ '## Explore the case','',
  '<CaseExplorer />','',
  '## What changes with the lens?','',
  'The actors remain, but the questions, evidence needs, rules, goals and outcomes change. A system diagnosis becomes useful when perspectives are connected to falsifiable intervention hypotheses.','',

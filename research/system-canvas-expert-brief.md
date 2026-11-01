@@ -1,5 +1,35 @@
 # System Canvas — Expert Collaboration Brief
 
+## Reframed invitation to collaborators
+
+We are exploring **a usable interface between established systems/organizational theory and practitioners' real diagnostic work**, not proposing a replacement for VSM, IAD, 4EM, ECM, or ArchiMate. The research question is whether **progressive disclosure and problem-led procedures** improve justified diagnoses and interventions for people without specialist theoretical training.
+
+### Requested expertise and critical comparison
+
+| Expertise | Particularly valuable challenge |
+|---|---|
+| VSM / Espejo ECM scholars | What do our simplified diagrams obscure, and which existing cybernetic practices already solve accessibility? |
+| Ostrom IAD / institutional analysts | Can prompts about rights, information and rules preserve institutional precision for novices? |
+| 4EM / enterprise architects | Which goal, rule, actor and process views are redundant with mature enterprise modeling practice? |
+| HCI / information visualization | What level of progressive disclosure best reduces effort without causing false conclusions? |
+| Education / assessment | How to assess independent learning, delayed transfer, and time-to-competence? |
+| Causal inference | Which shortcuts create misleading feedback/causal diagrams? |
+| Organizational action research | Can teams use the procedure responsibly with contested purposes and power asymmetries? |
+
+### Proposed collaboration artifact
+
+A **comparative worked case**, initially journalism/platform governance or a workplace decision-rights problem, containing:
+
+1. The System Canvas minimum view and optional focused drill-downs.
+2. Analyses by experts using IAD, VSM/ECM and 4EM.
+3. A structured crosswalk: what is equivalent, omitted, newly combined or misleading?
+4. A small pilot with novice practitioners and blind assessment.
+5. Explicit findings on the boundary between helpful simplification and unacceptable loss of explanatory power.
+
+**The strongest contribution may be pedagogical and methodological rather than foundationally theoretical.** A convincing null result would also sharpen the framework.
+
+
+
 ## Purpose
 
 Invite critique and co-development of a **provisional** diagnostic, redesign and teaching method—not endorsement of a new universal formal theory.

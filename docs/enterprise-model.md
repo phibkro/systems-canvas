@@ -25,6 +25,9 @@ An Enterprise Model represents the capabilities, processes, resources, governanc
 
 ## When to deepen the model
 
+Use the [shared ontology](/docs/system-ontology-and-taxonomy/) to distinguish agent capability, agency, autonomy, authority and resources within a specific action situation. If a recurring process changes through feedback, learning or environmental disturbances, use the [Dynamic/Cybernetic Model](/docs/dynamic-cybernetic-model/) without assuming every element is an intentional agent. For engineering a new undertaking, use the [analysis/engineering workflow](/docs/system-engineering-workflow/) to specify requirements and validation evidence.
+
+
 Add a stock-flow diagram for accumulation or resource depletion; a VSM-oriented view for recursive coordination and regulation; a process/capability map for operational boundaries; or a rule/authority view when decision rights matter. Use established enterprise modeling methods when they add necessary precision.
 
 If the enterprise appears capable of doing the right work but repeatedly chooses different behavior, [open the Game Model](/docs/game-model/) to investigate incentives, information and strategic interaction.

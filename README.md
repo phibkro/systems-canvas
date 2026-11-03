@@ -23,10 +23,19 @@ An open, provisional **practitioner method for analyzing, diagnosing, evaluating
 
 The design ambition draws on the **approachability of Business Model Canvas, C4, 4EM and ArchiMate** while retaining analytical links to Beer’s VSM, Ostrom’s IAD, second-order cybernetics and organizational theory. This does not claim those established frameworks lack practical methods; the incremental claim is reduced learning and application cost **without a loss of diagnostic validity**.
 
+## Ontology, taxonomy and systems engineering
+
+System Canvas now distinguishes a **shared ontology** (what can be modeled), an **analytical taxonomy** (how systems differ across boundaries and time), **complementary models** (Enterprise, Institutional Game, Dynamic/Cybernetic), and **procedures** for analysis and engineering. Agency, autonomy, capability and authority are separate, contextual properties; adaptation is neither agency nor guaranteed improvement. The existing six analytical lenses remain projections of one evidence-aware model, not new disconnected datasets.
+
+Read the [ontology and analytical taxonomy](docs/system-ontology-and-taxonomy.md), [Dynamic/Cybernetic Model](docs/dynamic-cybernetic-model.md), and [analysis/engineering workflow](docs/system-engineering-workflow.md). These are conceptual documents, not newly implemented interactive features.
+
 ## Documents
 
 | Resource | Source |
 |---|---|
+| Ontology and taxonomy | [docs/system-ontology-and-taxonomy.md](docs/system-ontology-and-taxonomy.md) |
+| Dynamic/Cybernetic Model | [docs/dynamic-cybernetic-model.md](docs/dynamic-cybernetic-model.md) |
+| Analysis and engineering workflow | [docs/system-engineering-workflow.md](docs/system-engineering-workflow.md) |
 | Core thesis | [docs/system-canvas-core.md](docs/system-canvas-core.md) |
 | Learning course | [docs/system-canvas-course.md](docs/system-canvas-course.md) |
 | Practitioner field guide | [docs/system-canvas-field-guide.md](docs/system-canvas-field-guide.md) |

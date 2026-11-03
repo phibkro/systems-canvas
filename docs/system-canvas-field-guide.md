@@ -30,6 +30,12 @@ The arrows are **questions about relationships**, not claims that particular flo
 
 
 
+## Classify before choosing a deeper model
+
+At the chosen **boundary, scale and time**, record only the system facets supported by evidence: substrate, boundary configuration, dynamics, control architecture, agency, autonomy, reflexivity, coordination and governance. These are overlapping dimensions, not a checklist or a single system type. See [ontology and analytical taxonomy](/docs/system-ontology-and-taxonomy/).
+
+Ask explicitly: **Who can act? Who can decide independently? Who may set or revise goals? Who may revise the rules?** Formal rights, practical means and actual exercise may diverge. Consult the [Dynamic/Cybernetic Model](/docs/dynamic-cybernetic-model/) when behavior changes through regulation, adaptation, feedback or emergence; consult the [engineering workflow](/docs/system-engineering-workflow/) when designing and validating a new intervention or system.
+
 ## The default canvas: minimum viable diagnosis
 
 **Start here before choosing any theoretical lens.** The canvas is a discussion and decision aid, not a complete organizational map.

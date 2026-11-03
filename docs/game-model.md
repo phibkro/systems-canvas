@@ -19,6 +19,12 @@ A Game Model represents an **action situation**: a bounded strategic interaction
 
 A **stakeholder** may be affected without being a player. Conversely, an AI agent may act for a human or organizational principal without sharing the principal's welfare interests.
 
+## Agency, autonomy and governance
+
+Do not equate being a participant with being autonomous or empowered. Record which actions an agent **can perform**, **can initiate**, **may legitimately perform**, and **can practically access** given its resources and information; locate these claims in an action situation and time. Separate discretion over operations, authority to select goals and authority to revise the governing rules. A persistent AI workflow is not necessarily an autonomous agent. [Shared semantic definitions](/docs/system-ontology-and-taxonomy/) prevent these distinctions from becoming inconsistent across enterprise and game views.
+
+When interaction outcomes feed back into regulation, learning or institutional evolution, open the [Dynamic/Cybernetic Model](/docs/dynamic-cybernetic-model/).
+
 ## Progressive formalization
 
 1. **Qualitative:** Record participants, positions, choices, rules, possible outcomes, conflicts and evidence. This is the default.

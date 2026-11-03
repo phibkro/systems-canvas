@@ -3,7 +3,16 @@
 > **Positioning:** [Enterprise & Agency Modeling](/docs/enterprise-agency-modeling/) links [Enterprise Models](/docs/enterprise-model/) and [Game Models](/docs/game-model/). **Enterprise Canvas** is its practitioner interface; [Human Viable Systems](/docs/human-viable-systems/) is the related normative research program. Earlier material retains the original System Canvas name for continuity.
 
 
-**Provisional practitioner-method thesis · v0.3**
+**Provisional practitioner-method thesis · v0.4**
+
+## Ontology, taxonomy, models, views and procedures
+
+The [shared ontology and system taxonomy](/docs/system-ontology-and-taxonomy/) makes explicit **what exists in the model** versus **how systems are classified**. Neither a system type nor a single diagram determines its required theory. Classify a chosen boundary and time by substrate, dynamics, control, agency, autonomy, reflexivity, coordination and governance; multiple classifications can coexist.
+
+Three complementary model families consume the same identities: the [Enterprise Model](/docs/enterprise-model/) describes organization; the [Game Model](/docs/game-model/) describes strategic action situations; the [Dynamic/Cybernetic Model](/docs/dynamic-cybernetic-model/) describes changes of state, regulation, learning and emergence, including systems without agents. The existing six lenses are **views**, not additional ontologies. [Analysis and engineering procedures](/docs/system-engineering-workflow/) act on those models; Human Viable Systems supplies an explicit normative evaluation option.
+
+**Agency ≠ autonomy ≠ capability ≠ authority.** Assess each actor within an action situation, constraints and time. Separate operational freedom, goal-setting and institutional rule-revision. A persistent workflow need not be agentic; an AI agent need not be institutionally autonomous. Include models, observers and rule revision within the inquiry when their effects matter. Adaptation does not imply improvement.
+
 
 ## Canonical visual grammar — spatial relations before notation
 

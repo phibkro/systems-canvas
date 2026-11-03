@@ -2,11 +2,17 @@
 
 **Proposed modeling framework · open research · not yet empirically validated**
 
-Enterprise & Agency Modeling is a way to investigate **how purposeful enterprises operate, why participating agents behave as they do, and how changing structures and incentives might improve outcomes**. It combines two complementary model families with an evidence-oriented method: **frame → model → diagnose → evaluate → revise → test and monitor**.
+Enterprise & Agency Modeling is a way to investigate **how purposeful enterprises operate, why participating agents behave as they do, and how changing structures and incentives might improve outcomes**. It begins with two complementary model families with an evidence-oriented method: **frame → model → diagnose → evaluate → revise → test and monitor**.
 
 An *enterprise* is a purposeful undertaking realized through interacting agents, capabilities, resources, rules and activities. It may span businesses, cooperatives, public institutions, civic initiatives, partnerships, or human–AI workflows. **An enterprise is not synonymous with a company or a legal organization.** Boundaries are selected for the question being investigated.
 
-## Two linked models
+## Shared ontology and complementary models
+
+The [system ontology and taxonomy](/docs/system-ontology-and-taxonomy/) provides shared entities, relations, events, rules, evidence claims and contextual agency/autonomy profiles. The [Dynamic/Cybernetic Model](/docs/dynamic-cybernetic-model/) is a **third complementary model family** for feedback, adaptation and emergence, including systems without deliberate agents. It is specified conceptually rather than implemented as an interactive simulator. The existing Enterprise and Game models remain the primary practitioner entry points; the six lenses remain projections of the same case.
+
+The [engineering workflow](/docs/system-engineering-workflow/) extends diagnosis and revision with requirements, safeguards, architecture, validation and rule-revision artifacts.
+
+## Two primary entry models
 
 | | Enterprise Model | Game Model |
 |---|---|---|
